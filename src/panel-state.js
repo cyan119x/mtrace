@@ -12,6 +12,7 @@ export function createPanelController({invoke,fetchArtifact,deliver,onChange=()=
  async function run(mode){if(disposed||busy())return;refreshSeq++;const v=++epoch,c={...context};Object.assign(state,{phase:'resolving',artifact:null,message:'Checking session identity…',startedAt:now()});publish();try{
   const id=await invoke('status',{},c);if(!valid(v))return;state.identity=id;state.phase='exporting';state.message=mode==='transcript'?'Building transcript…':'Collecting available evidence. This can take a minute…';publish();
   const a=await invoke('export',{mode,expectedSessionId:id.sessionId,expectedLifecycleRevision:id.lifecycleRevision??null},c);if(!valid(v))return;
+  if(a.status==='unavailable'){if(!['NO_CURRENT_USER','EMPTY_CONVERSATION'].includes(a.code))throw new Error('Export unavailable. Refresh and try again.');Object.assign(state,{phase:'needs-input',artifact:null,startedAt:null,message:cleanError({message:a.message})});publish();return;}
   const fresh=await invoke('status',{},c);if(!valid(v))return;
   if(identityKey(id)!==identityKey(fresh)||a.sessionId!==id.sessionId||(a.lifecycleRevision??null)!==(id.lifecycleRevision??null))throw new Error('Session changed during export. Create a new export.');
   if(!Number.isFinite(Date.parse(a.expiresAt))||Date.parse(a.expiresAt)<=now())throw new Error('Export has expired. Create a new export.');

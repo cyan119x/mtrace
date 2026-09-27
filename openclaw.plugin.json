@@ -2,7 +2,7 @@
   "id": "mtrace",
   "name": "MTrace",
   "description": "Reset-aware session evidence with honest coverage.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "enabledByDefault": false,
   "activation": {
     "onStartup": true
@@ -13,9 +13,9 @@
     "properties": {}
   },
   "controlUi": {
-    "entry": "dist/control-ui/cc9aec9a77fab886d72a9650835c99f0ee9668ccf3c9382a82881e67283d8069/index.js",
+    "entry": "dist/control-ui/00dc2d78aefa4585554d96aef838654d8ab45c4b6724f45a4a1b6710af10c47d/index.js",
     "styles": [
-      "dist/control-ui/cc9aec9a77fab886d72a9650835c99f0ee9668ccf3c9382a82881e67283d8069/index.css"
+      "dist/control-ui/00dc2d78aefa4585554d96aef838654d8ab45c4b6724f45a4a1b6710af10c47d/index.css"
     ]
   },
   "contracts": {

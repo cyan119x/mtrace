@@ -1,6 +1,6 @@
 {
   "name": "openclaw-plugin-mtrace",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MTrace session evidence export as an OpenClaw Feature Plugin",
   "type": "module",
   "private": true,
