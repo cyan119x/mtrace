@@ -1,24 +1,23 @@
 {
   "name": "openclaw-plugin-mtrace",
   "version": "0.2.1",
-  "description": "MTrace session evidence export as an OpenClaw Feature Plugin",
+  "description": "Reset-aware session evidence export for OpenClaw 2026.9.6",
   "type": "module",
   "private": true,
   "scripts": {
     "build": "openclaw plugins build",
     "validate": "openclaw plugins validate --json",
     "pack": "openclaw plugins pack --json",
-    "test:local": "node --experimental-loader ./tests/sdk-loader.mjs --test tests/*.test.mjs",
-    "test:live": "node --experimental-loader ./tests/sdk-loader.mjs tests/live-validation.mjs"
+    "test:local": "node --experimental-loader ./tests/sdk-loader.mjs --test tests/*.test.mjs"
   },
   "files": [
     "dist",
     "src",
     "openclaw.plugin.json",
     "README.md",
+    "LICENSE",
     "MIGRATION-NOTES.md",
-    "THIRD-PARTY-LICENSES.md",
-    "LICENSE"
+    "THIRD-PARTY-LICENSES.md"
   ],
   "peerDependencies": {
     "openclaw": "2026.9.6"
@@ -43,5 +42,13 @@
   "devDependencies": {
     "esbuild": "0.28.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyan119x/mtrace.git"
+  },
+  "homepage": "https://github.com/cyan119x/mtrace#readme",
+  "bugs": {
+    "url": "https://github.com/cyan119x/mtrace/issues"
+  }
 }

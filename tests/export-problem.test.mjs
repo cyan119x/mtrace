@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import { withExpectedExportProblem } from '../dist/export-problem.js';
+test('success object passes through unchanged',async()=>{const result={artifactId:'test'};assert.equal(await withExpectedExportProblem(async()=>result),result);});
+test('no direct user after reset returns actionable typed outcome',async()=>{const p=await withExpectedExportProblem(async()=>{throw Error('Current conversation has no direct user message after the latest reset');});assert.equal(p.status,'unavailable');assert.equal(p.code,'NO_CURRENT_USER');assert.match(p.message,/directly in this session/);assert.match(p.message,/forwarded/);assert.equal('downloadUrl' in p,false);});
+test('empty conversation returns separate safe outcome',async()=>{const p=await withExpectedExportProblem(async()=>{throw Error('No conversation entries available');});assert.equal(p.code,'EMPTY_CONVERSATION');assert.match(p.message,/Send a message/);});
+test('unknown errors stay behind Gateway sanitization',async()=>{const error=Error('unknown internal sensitive detail');await assert.rejects(withExpectedExportProblem(async()=>{throw error;}),e=>e===error);});
+test('whitelist is exact and does not reflect appended sensitive text',async()=>{const error=Error('No conversation entries available: internal detail');await assert.rejects(withExpectedExportProblem(async()=>{throw error;}),e=>e===error);});
+test('outcome objects are not shared mutable state',async()=>{const work=async()=>{throw Error('No conversation entries available');};const a=await withExpectedExportProblem(work);a.message='modified';assert.notEqual((await withExpectedExportProblem(work)).message,'modified');});

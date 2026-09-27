@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Install pinned development and OpenClaw dependencies
+        run: |
+          npm ci
+          npm install --no-save --package-lock=false openclaw@2026.9.6
+      - name: Synthetic and SDK tests
+        run: OPENCLAW_PACKAGE_ROOT="$GITHUB_WORKSPACE/node_modules/openclaw" npm run test:local
+      - name: Build and validate plugin
+        run: |
+          npm run build
+          npm run validate
+      - name: Pack installable archive
+        run: openclaw plugins pack --out ./mtrace-ci.tgz --json
