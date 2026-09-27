@@ -8,6 +8,7 @@ media/
 *.log
 *.tgz
 pack-local.json
+ci-pack-local.json
 *.tar.gz
 *.zip
 *.sqlite
@@ -23,3 +24,5 @@ pack-local.json
 *secret*
 .DS_Store
 ._*
+
+.ci-tools/
