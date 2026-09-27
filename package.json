@@ -1,6 +1,6 @@
 {
   "name": "openclaw-plugin-mtrace",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MTrace session evidence export as an OpenClaw Feature Plugin",
   "type": "module",
   "private": true,
@@ -18,8 +18,8 @@
     "README.md",
     "MIGRATION-NOTES.md",
     "MIRA-HANDOFF.md",
-    "REVISION-0.1.1.md",
-    "MIRA-HANDOFF-0.1.1.md",
+    "REVISION-0.1.2.md",
+    "MIRA-HANDOFF-0.1.2.md",
     "LICENSE"
   ],
   "peerDependencies": {

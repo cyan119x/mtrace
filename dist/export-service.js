@@ -6,6 +6,7 @@ import { runCommandWithTimeout } from "openclaw/plugin-sdk/process-runtime";
 import { readSessionTranscriptEvents } from "openclaw/plugin-sdk/session-transcript-runtime";
 import { getSessionEntry } from "openclaw/plugin-sdk/session-store-runtime";
 import { selectCurrentConversation } from "./current-conversation.js";
+import { createDownloadCapability, verifyDownloadTokenHash } from "./download-capability.js";
 
 const TTL_MS = 30 * 60_000;
 const artifacts = new Map();
@@ -93,10 +94,20 @@ export async function createArtifact({agentId,sessionKey,mode}) {
   try {
     const built = mode === "history" ? await historyMarkdown(before,bundle) : await currentMarkdown(before,bundle,mode);
     const after=identity(agentId,sessionKey); if (!sameGeneration(before,after)) throw new Error("Session generation changed during export; refusing to publish an artifact");
-    const artifactId=crypto.randomUUID(); const stamp=new Date().toISOString().replace(/[:.]/gu,"-"); const filename=`mtrace-${before.sessionId.slice(0,8)}-${mode}-${stamp}.md`; const filePath=path.join(ROOT,`${artifactId}.md`); await fs.writeFile(filePath,built.text,{mode:0o600,flag:"wx"}); const st=await fs.stat(filePath);
-    const artifact={ artifactId, agentId, sessionKey, sessionId:before.sessionId, lifecycleRevision:before.lifecycleRevision, mode, filename, filePath, sizeBytes:st.size, expiresAt:Date.now()+TTL_MS, ...built }; artifacts.set(artifactId,artifact); return artifact;
+    const artifactId=crypto.randomUUID(); const { token:downloadToken, tokenHash:downloadTokenHash }=createDownloadCapability(); const stamp=new Date().toISOString().replace(/[:.]/gu,"-"); const filename=`mtrace-${before.sessionId.slice(0,8)}-${mode}-${stamp}.md`; const filePath=path.join(ROOT,`${artifactId}.md`); await fs.writeFile(filePath,built.text,{mode:0o600,flag:"wx"}); const st=await fs.stat(filePath);
+    const artifact={ artifactId, downloadTokenHash, agentId, sessionKey, sessionId:before.sessionId, lifecycleRevision:before.lifecycleRevision, mode, filename, filePath, sizeBytes:st.size, expiresAt:Date.now()+TTL_MS, ...built }; artifacts.set(artifactId,artifact); return { ...artifact, downloadToken };
   } finally { await fs.rm(bundle.workspace,{recursive:true,force:true}); }
 }
 export function getIdentity(agentId,sessionKey) { return identity(agentId,sessionKey); }
-export async function takeArtifact(id) { await purgeExpiredArtifacts(); const a=artifacts.get(id); if (!a) return undefined; const now=identity(a.agentId,a.sessionKey); if (!sameGeneration(a,now)) { artifacts.delete(id); await fs.rm(a.filePath,{force:true}); return undefined; } artifacts.delete(id); return a; }
+async function resolveArtifactForDownload(id, token, consume) {
+  await purgeExpiredArtifacts();
+  const a=artifacts.get(id);
+  if (!a || !verifyDownloadTokenHash(token, a.downloadTokenHash)) return undefined;
+  const now=identity(a.agentId,a.sessionKey);
+  if (!sameGeneration(a,now)) { artifacts.delete(id); await fs.rm(a.filePath,{force:true}); return undefined; }
+  if (consume) artifacts.delete(id);
+  return a;
+}
+export async function inspectArtifact(id, token) { return resolveArtifactForDownload(id, token, false); }
+export async function takeArtifact(id, token) { return resolveArtifactForDownload(id, token, true); }
 export async function discardArtifact(a) { await fs.rm(a.filePath,{force:true}); }
