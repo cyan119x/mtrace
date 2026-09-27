@@ -37,6 +37,14 @@ function collectRunIds(entries) {
   }
   return out;
 }
+function collectUserAnchoredRunIds(entries) {
+  const out = new Set();
+  for (const entry of entries) {
+    if (!isRecord(entry) || entry.type !== "message" || !isRecord(entry.message) || entry.message.role !== "user") continue;
+    addRunIdsFromMessage(entry.message, out);
+  }
+  return out;
+}
 function parseTime(value, label) {
   const n = Date.parse(value); if (!Number.isFinite(n)) throw new Error(`${label} has an invalid timestamp`); return n;
 }
@@ -57,14 +65,32 @@ export function selectCurrentConversation({ branchEntries, allEntries, runtimeEv
     resetBoundaryEntryId = optionalString(reset.id);
     conversationStartedAt = optionalString(firstUser.timestamp);
   }
+
   const runtimeRunIds = new Set(runtimeEvents.map((e) => optionalString(e.runId)).filter(Boolean));
   const selectedCandidates = collectRunIds(selectedEntries);
   const selectedRunIds = new Set([...selectedCandidates].filter((id) => runtimeRunIds.has(id)));
+  const selectedUserAnchors = collectUserAnchoredRunIds(selectedEntries);
   const selectedIds = new Set(selectedEntries.map((e) => optionalString(e.id)).filter(Boolean));
   const activeIds = new Set(branchEntries.map((e) => optionalString(e.id)).filter(Boolean));
   const knownNonSelected = collectRunIds(allEntries.filter((e) => !selectedIds.has(optionalString(e.id))));
   const offBranch = collectRunIds(allEntries.filter((e) => !activeIds.has(optionalString(e.id))));
-  for (const id of selectedRunIds) if (offBranch.has(id)) throw new Error(`Cannot safely scope current conversation runtime events because run ${id} is shared with an off-branch transcript entry`);
+
+  // A single OpenClaw run may legitimately leave more than one transcript row,
+  // including an abandoned/off-branch row. Runtime evidence is run-scoped, not
+  // transcript-row-scoped. Treat a shared run as safe when the selected branch
+  // contains a user row that directly anchors that run. Off-branch transcript
+  // rows are still excluded later by entry id. If a shared run is present only
+  // through assistant/compaction ownership on the selected branch, keep failing
+  // closed because runtime ownership cannot be established safely.
+  const sharedRunIds = new Set();
+  for (const id of selectedRunIds) {
+    if (!offBranch.has(id)) continue;
+    if (!selectedUserAnchors.has(id)) {
+      throw new Error(`Cannot safely scope current conversation runtime events because run ${id} is shared with an off-branch transcript entry and has no selected user anchor`);
+    }
+    sharedRunIds.add(id);
+  }
+
   const startMs = conversationStartedAt ? parseTime(conversationStartedAt, "Current conversation start") : 0;
   const selectedRuntime = []; const unowned = []; const unknown = [];
   for (const event of runtimeEvents) {
@@ -81,5 +107,13 @@ export function selectCurrentConversation({ branchEntries, allEntries, runtimeEv
   if (!selectedRuntime.length && !selectedRunIds.size && runtimeEvents.some((e) => parseTime(e.ts, "Runtime event") >= startMs)) {
     throw new Error("Cannot safely scope current conversation runtime events because the active branch exposes no run ownership");
   }
-  return { selectedEntries, selectedRuntime, selectedRunIds: [...selectedRunIds].sort(), resetBoundaryAt, resetBoundaryEntryId, conversationStartedAt };
+  return {
+    selectedEntries,
+    selectedRuntime,
+    selectedRunIds: [...selectedRunIds].sort(),
+    sharedRunIds: [...sharedRunIds].sort(),
+    resetBoundaryAt,
+    resetBoundaryEntryId,
+    conversationStartedAt
+  };
 }

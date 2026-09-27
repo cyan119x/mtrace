@@ -2,7 +2,7 @@
   "id": "mtrace",
   "name": "MTrace",
   "description": "Export current conversation evidence or full sidebar-session history without modifying OpenClaw core.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "enabledByDefault": false,
   "activation": {
     "onStartup": true
@@ -16,9 +16,9 @@
     "tools": []
   },
   "controlUi": {
-    "entry": "dist/control-ui/884b90f7225d78fe995efce5d0498b439daa11af8d9cea6c68dd755109c24380/index.js",
+    "entry": "dist/control-ui/51e725e1d10410dcefd72cf5e4bcb8144db7b5600b0cdec11476d8564648bdb6/index.js",
     "styles": [
-      "dist/control-ui/884b90f7225d78fe995efce5d0498b439daa11af8d9cea6c68dd755109c24380/index.css"
+      "dist/control-ui/51e725e1d10410dcefd72cf5e4bcb8144db7b5600b0cdec11476d8564648bdb6/index.css"
     ]
   }
 }
