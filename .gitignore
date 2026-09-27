@@ -1,0 +1,24 @@
+# Dependencies and generated UI bundle
+node_modules/
+dist/control-ui/
+
+# Private runtime data and local validation
+validation/
+media/
+*.log
+*.tgz
+*.tar.gz
+*.zip
+*.sqlite
+*.db
+*.jsonl
+*.env
+.env*
+!.env.example
+*trajectory*
+*transcript*export*
+*session*export*
+*private*
+*secret*
+.DS_Store
+._*
