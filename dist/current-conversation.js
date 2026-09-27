@@ -40,7 +40,7 @@ function collectRunIds(entries) {
 function collectUserAnchoredRunIds(entries) {
   const out = new Set();
   for (const entry of entries) {
-    if (!isRecord(entry) || entry.type !== "message" || !isRecord(entry.message) || entry.message.role !== "user") continue;
+    if (!isDirectUser(entry)) continue;
     addRunIdsFromMessage(entry.message, out);
   }
   return out;
@@ -49,6 +49,7 @@ function parseTime(value, label) {
   const n = Date.parse(value); if (!Number.isFinite(n)) throw new Error(`${label} has an invalid timestamp`); return n;
 }
 export function selectCurrentConversation({ branchEntries, allEntries, runtimeEvents }) {
+  if (!Array.isArray(branchEntries) || branchEntries.some(e=>!isRecord(e) || !optionalString(e.id))) throw new Error("Transcript structure is incomplete; refusing to infer no-reset");
   const resetIndex = branchEntries.findLastIndex((e) => isRecord(e) && e.type === "reset");
   let selectedEntries; let resetBoundaryAt; let resetBoundaryEntryId; let conversationStartedAt;
   if (resetIndex < 0) {

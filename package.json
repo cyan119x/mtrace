@@ -1,6 +1,6 @@
 {
   "name": "openclaw-plugin-mtrace",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "MTrace session evidence export as an OpenClaw Feature Plugin",
   "type": "module",
   "private": true,
@@ -8,22 +8,20 @@
     "build": "openclaw plugins build",
     "validate": "openclaw plugins validate --json",
     "pack": "openclaw plugins pack --json",
-    "test:local": "node --test tests/*.test.mjs"
+    "test:local": "node --experimental-loader ./tests/sdk-loader.mjs --test tests/*.test.mjs",
+    "test:live": "node --experimental-loader ./tests/sdk-loader.mjs tests/live-validation.mjs"
   },
   "files": [
     "dist",
-    "src/control-ui.js",
-    "src/control-ui.css",
+    "src",
     "openclaw.plugin.json",
     "README.md",
     "MIGRATION-NOTES.md",
-    "MIRA-HANDOFF.md",
-    "REVISION-0.1.2.md",
-    "MIRA-HANDOFF-0.1.2.md",
+    "THIRD-PARTY-LICENSES.md",
     "LICENSE"
   ],
   "peerDependencies": {
-    "openclaw": ">=2026.9.6"
+    "openclaw": "2026.9.6"
   },
   "peerDependenciesMeta": {
     "openclaw": {
@@ -36,7 +34,7 @@
     ],
     "controlUi": "./src/control-ui.js",
     "compat": {
-      "pluginApi": ">=2026.9.6"
+      "pluginApi": "2026.9.6"
     },
     "build": {
       "openclawVersion": "2026.9.6"
