@@ -47,3 +47,7 @@ These commands require a compatible OpenClaw CLI. Never run a live-session valid
 ## License
 
 MIT for MTrace-authored code; adapted OpenClaw code retains its MIT notice in [THIRD-PARTY-LICENSES.md](THIRD-PARTY-LICENSES.md). See [LICENSE](LICENSE).
+
+## Receiving and historical references
+
+See [receiving state](MIGRATION_HANDOFF.md), [project decisions and checklist](docs/PROJECT_STATUS.md), and [historical source coverage](historical/README.md). These archival additions are not a new plugin release or runtime activation.

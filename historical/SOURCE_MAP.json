@@ -1,0 +1,2269 @@
+[
+  {
+    "sourceLabel": "current",
+    "sourcePath": ".gitignore",
+    "originalSha256": "5d2ed9bc49121e5867b1c5057589a95322352cea50b6a46f17dcf2a684f48266",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:.gitignore"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "AGENTS.md",
+    "originalSha256": "950167c4366e025d8e5d600af32c52d90e11cdb54901ecfd7f13b5b54e51f173",
+    "disposition": "portable receiving document"
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "CHANGELOG.md",
+    "originalSha256": "f43a6984097263c20793385b4a337d77e045abeb85b18966e604eea609de176c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:CHANGELOG.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:CHANGELOG.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "CLAUDE.md",
+    "originalSha256": "336cc4fbf19beaada7ccf9986414fa91851a8d7a07dfb3ccbe800a69eed0ab49",
+    "disposition": "portable receiving document"
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "CONTRIBUTING.md",
+    "originalSha256": "32fc8451cc240684059c2f898f247987a8e4f013663312280383ec467b6703b9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:CONTRIBUTING.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:CONTRIBUTING.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "HISTORY.md",
+    "originalSha256": "26d1f549ed0b15e8a8f410d6cd7821dcb6814da94b22db08f94a52a59decaef0",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:HISTORY.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:HISTORY.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "LICENSE",
+    "originalSha256": "7aff96ccf1559ce233565ac082428b8c343ef65790069d8d5a3cd7cd14505847",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:LICENSE",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:LICENSE",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:LICENSE",
+      "ff6f28790726653039231bf223214f6825751eed:LICENSE",
+      "9127da23cc70a5ae060bdc6b147612336ca60583:LICENSE",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:LICENSE",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:LICENSE"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "32f1d93fdf84b2c8643390bb0c261deda1f4c0ae08798d4f118906b2d6727dac",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:MIGRATION-NOTES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:MIGRATION-NOTES.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "MIGRATION_HANDOFF.md",
+    "originalSha256": "73c7ec4845718304d3764b2a0d91500f8ffd4c678276f1c69ef474d6f61b8572",
+    "disposition": "portable receiving document"
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "README.md",
+    "originalSha256": "55aab0b0544da523dc30c117b4cd8a5d977fb7aede924652cd73e3c8004115e7",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:README.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:README.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "RELEASE.md",
+    "originalSha256": "a1f6438621468c84c174cb42edfd37623123d948cc43a4fd07a1586a09baf9bc",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:RELEASE.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:RELEASE.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "SECURITY.md",
+    "originalSha256": "c15efe6973605aae6f8399c32f23082ab47782eae4035932200956d061760226",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:SECURITY.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:SECURITY.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "THIRD-PARTY-LICENSES.md",
+    "originalSha256": "ef554488471b8f212eb2b4240eaa5f97ad679f307e2f147e9b9c48de1dfb7305",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:THIRD-PARTY-LICENSES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:THIRD-PARTY-LICENSES.md"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "5a8609ae20c4470634176b60e5d41fe8897be9da0411693758d01b2614e0bd25",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:openclaw.plugin.json",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:openclaw.plugin.json",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "f29b4b61eef2045ddb2408ccdca4160e31012d0cea79e21cfc41158e9dbb334b",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:package-lock.json",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "package.json",
+    "originalSha256": "79a08ccf61ed02c26859f44b326b352fe3387ec96eee6803bc88f3fa6b3e1030",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:package.json",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:package.json"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "f2bd119f1a70f2588b80e24095f6917088885fa65380f3402ff17f5e38e3f13d",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.css",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.css",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.css",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "04a8f148a53851a95f2a5e897f39ae780ae7fc8ba69e3bc73d985dbafd960965",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.js",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "src/panel-state.js",
+    "originalSha256": "d4b696981f252fb0eb62245d3da314a9be025ff4fa468bc68102d3492ea797df",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/panel-state.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/panel-state.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/panel-state.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": ".github/workflows/ci.yml",
+    "originalSha256": "1fc8ad502f9fcc64d9c3130d74f7357e28f4866581e098b118f04a161c787eab",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:.github/workflows/ci.yml"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/artifact-service.test.mjs",
+    "originalSha256": "aaff86952f40ddc70255385f6d4de3323ec03ec3fb0a8ccf1be58ca26473ad87",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/artifact-service.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/artifact-service.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "c0ad05edba191d348b5d65711a36fe8e1c4b594aebbc34cf1e675a5605a55227",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/current-conversation.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/current-conversation.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/download-capability.test.mjs",
+    "originalSha256": "d4b31cf5c73581c6d2654051a76bb287ee792463168d405f8e13c0b127383ff1",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/download-capability.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/download-capability.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/evidence.test.mjs",
+    "originalSha256": "0a2c32e2894a5f84f923cff0490f2f2985053c8ef2194277c485fddf994ef193",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/evidence.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/evidence.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/export-problem.test.mjs",
+    "originalSha256": "757360ae77cb9c658f37c8dea6881760f5ef53548102e3109ae5466174554d2a",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/export-problem.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/export-problem.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/panel-state.test.mjs",
+    "originalSha256": "44119384d602ab2a6db6b2b73fea5532c85b9a8bb3233e298513d78a9fd04912",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/panel-state.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/panel-state.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/panel-view.test.mjs",
+    "originalSha256": "4322c71e31d2c9849f0509c5462a679a310196851353932d73f7980b694de7d6",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/panel-view.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/panel-view.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "tests/sdk-loader.mjs",
+    "originalSha256": "ee1e3d2c32736ef1c93f9ee0398225882f37abb98874aeed90787f2def5f6ce6",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/sdk-loader.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/sdk-loader.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/artifact-service.js",
+    "originalSha256": "2ede5bc55ad08367f49d1b7a5d2a240f3bd2f88d94f972ab8959fd1dac2c4813",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/artifact-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/artifact-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/artifact-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/artifact-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "502dd2b5d53bfd4861894e11f0a5c6ee9bb27e2474db8eb27d6529190df4bb87",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/contract.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/contract.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "d9eaa2d6c514a812011fbffb1e0d38cf9f70dd5306721816e5adda80906b0237",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/current-conversation.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/current-conversation.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/current-conversation.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/download-capability.js",
+    "originalSha256": "62a9b30d0c053507930bb988f0b8a080b5ddfa49f2f6e112e694684eaf9f943c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-capability.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-capability.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-capability.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-capability.js",
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/download-capability.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/download-http.js",
+    "originalSha256": "cf0f88effb3a7e3dd17f7eb9f7d54b7c6184615e3b6f6117eb616c846848be6e",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-http.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-http.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-http.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-http.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/evidence.js",
+    "originalSha256": "2df51a271ad34ba3ed2cd0154c9be05c52e5f487d6ace94162b60c3f84a4b6f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/evidence.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/evidence.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/evidence.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/evidence.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/export-problem.js",
+    "originalSha256": "d23157e3522de46725e27d5db0b139b07e64233a068b9409c9e2d8c1e510f2c9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/export-problem.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/export-problem.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/export-problem.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "45b85ef94f86031f681a651e2e8c88fe8578856f8331dbb4afdc9b9df4960557",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/export-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/export-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/export-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "a0523d3a9c9c84f73f751c003df63c9c214ba18296476aa841eb75d5145dee89",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/index.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/index.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/privacy.js",
+    "originalSha256": "0f8e5d68dcb2a1236b545eec464a6869507f14dd4cb01c818fa2dd823372c600",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/privacy.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/privacy.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/privacy.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/privacy.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/runtime-adapter.js",
+    "originalSha256": "6a255e3519c5add1f8711bf382f1c4a19dbfa9c6e7a620ed633736756b2ae898",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/runtime-adapter.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/runtime-adapter.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/runtime-adapter.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/runtime-adapter.js"
+    ]
+  },
+  {
+    "sourceLabel": "current",
+    "sourcePath": "dist/transcript-model.js",
+    "originalSha256": "b7aaafe3444c73612fdfe677cb7d5be141c5c20162bdf7cdc25d45512bb728f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/transcript-model.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/transcript-model.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/transcript-model.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/transcript-model.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "BUILD-STATUS.md",
+    "originalSha256": "7d58ca4ee49dd71920603492fb03c0a8812ae81f2574d3fe2fe64ba61b26918f",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "899bc8b74a1551835e6607138c84d009a5ec188690749df9193c660fb88eefdd",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "MIRA-HANDOFF-0.1.2.md",
+    "originalSha256": "ba732b43a2067c1fb4a2cb70a2d4d7e411af634c438cbc891d92850cae5814ac",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "MIRA-HANDOFF.md",
+    "originalSha256": "7e231826e9589608c79e2309e7c80f7beeb810b03ca3e1c694a014431cd42213",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "README.md",
+    "originalSha256": "0ab16c5dded64a11dd46af0d85cf63ae46c7c4179851e2f07552dda6187d28c9",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "REVISION-0.1.2.md",
+    "originalSha256": "6a1dbc4e375ae76aeef37f64a3808428e7c865932740fa666ffdd8cdab17546e",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "976e25d74fe348e292654db1e18ab952fdccba9e9138db17849eac3117fa5b34",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "6beab61ac199c04c87d882f9fbbcd0e5114d91886676b9f83db957836ecfcb78",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "package.json",
+    "originalSha256": "e79074ee2073fedb3bf906645015019a0c2ae201aaf18fbe5e6d55dfb4558e3d",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/package.json",
+    "candidateSha256": "e79074ee2073fedb3bf906645015019a0c2ae201aaf18fbe5e6d55dfb4558e3d",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "2f55d6860a2c4e0edcf2c536b7079f1514b619523e6ace4229a2f70e4307f33d",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:src/control-ui.css",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "a9699969f6b389d662c3f910f00751a9ac7799f91585ba74e76da478929551f0",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:src/control-ui.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "reference/v5-current-conversation-original.ts",
+    "originalSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-current-conversation-original.ts",
+    "candidateSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "reference/v5-mtrace-http-original.ts",
+    "originalSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-http-original.ts",
+    "candidateSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "reference/v5-mtrace-panel-original.ts",
+    "originalSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-panel-original.ts",
+    "candidateSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "c0ad05edba191d348b5d65711a36fe8e1c4b594aebbc34cf1e675a5605a55227",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/current-conversation.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/current-conversation.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "tests/download-capability.test.mjs",
+    "originalSha256": "d4b31cf5c73581c6d2654051a76bb287ee792463168d405f8e13c0b127383ff1",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/download-capability.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/download-capability.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "b9d429b254ec5f7718ce4df59469cb8a8b77cacb156eed666aed6195e825f018",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/contract.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/contract.js",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "34673a97460f354607e87eab3fe393119cb3d8d4770bac2e0eb0b2a97bee2d38",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/current-conversation.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "dist/download-capability.js",
+    "originalSha256": "62a9b30d0c053507930bb988f0b8a080b5ddfa49f2f6e112e694684eaf9f943c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-capability.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-capability.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-capability.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-capability.js",
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/download-capability.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "7fc1c8a96755a70d29d5d92d06ad2dc8b71e419115067b9ca2d8e2fff1bbaa2c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.1.2-20260925",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "a164696d69216354b9f21f03025df618831a08d68e4ab1dd709ded56fd6cb9c0",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "32f1d93fdf84b2c8643390bb0c261deda1f4c0ae08798d4f118906b2d6727dac",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:MIGRATION-NOTES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:MIGRATION-NOTES.md"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "README.md",
+    "originalSha256": "97d8b4ed6b329c70c092db72e28688a5ead0b293c55a5047e63ac6fdcb878760",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "REVISION-0.2.1.md",
+    "originalSha256": "daac7a24d0e4c8bf61b1192476c218ce1cf40dfbd87535e7e00f483956f5c67a",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "THIRD-PARTY-LICENSES.md",
+    "originalSha256": "ef554488471b8f212eb2b4240eaa5f97ad679f307e2f147e9b9c48de1dfb7305",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:THIRD-PARTY-LICENSES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:THIRD-PARTY-LICENSES.md"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "5a8609ae20c4470634176b60e5d41fe8897be9da0411693758d01b2614e0bd25",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:openclaw.plugin.json",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:openclaw.plugin.json",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "9165cfc9a9714d78dd201a29c639a4dd9327dfb057272a0bda51f56242ed5ddc",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "package.json",
+    "originalSha256": "2d7461082e54a2fcaa73fb9d6081df4faa933be63fd5c9fa9320128211174f9b",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.1-20260926/package.json",
+    "candidateSha256": "2d7461082e54a2fcaa73fb9d6081df4faa933be63fd5c9fa9320128211174f9b",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "f2bd119f1a70f2588b80e24095f6917088885fa65380f3402ff17f5e38e3f13d",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.css",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.css",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.css",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "04a8f148a53851a95f2a5e897f39ae780ae7fc8ba69e3bc73d985dbafd960965",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.js",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "src/panel-state.js",
+    "originalSha256": "d4b696981f252fb0eb62245d3da314a9be025ff4fa468bc68102d3492ea797df",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/panel-state.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/panel-state.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/panel-state.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/artifact-service.test.mjs",
+    "originalSha256": "aaff86952f40ddc70255385f6d4de3323ec03ec3fb0a8ccf1be58ca26473ad87",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/artifact-service.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/artifact-service.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "c0ad05edba191d348b5d65711a36fe8e1c4b594aebbc34cf1e675a5605a55227",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/current-conversation.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/current-conversation.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/download-capability.test.mjs",
+    "originalSha256": "d4b31cf5c73581c6d2654051a76bb287ee792463168d405f8e13c0b127383ff1",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/download-capability.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/download-capability.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/evidence.test.mjs",
+    "originalSha256": "6168d315f06391172940d61b263985dcb271d8e534c960f0ca5c4cae1622d084",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.1-20260926/tests/evidence.test.mjs",
+    "candidateSha256": "82d5b58e2ea0dae9b1eb87a2515a34d3ac6741128d0de4d89479f20f073c66d3",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/export-problem.test.mjs",
+    "originalSha256": "757360ae77cb9c658f37c8dea6881760f5ef53548102e3109ae5466174554d2a",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/export-problem.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/export-problem.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/live-validation.mjs",
+    "originalSha256": "6603afcc8be73240e8425ab939cd7b04557ee83edc24b288ad6cbd75de4525d3",
+    "disposition": "withheld-private-bound-live-harness",
+    "reason": "contains actual session/host binding; preserved source locally, never executed"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/panel-state.test.mjs",
+    "originalSha256": "44119384d602ab2a6db6b2b73fea5532c85b9a8bb3233e298513d78a9fd04912",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/panel-state.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/panel-state.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/panel-view.test.mjs",
+    "originalSha256": "4322c71e31d2c9849f0509c5462a679a310196851353932d73f7980b694de7d6",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/panel-view.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/panel-view.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "tests/sdk-loader.mjs",
+    "originalSha256": "8398cc9f42237232eac8d1f64014d53c152deb315ba351b297599109d586e94f",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.1-20260926/tests/sdk-loader.mjs",
+    "candidateSha256": "8fd870eeb1475fb88f37d9b3faa00b6e2ed1e335b4447b21c436e12b5323f8eb",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/artifact-service.js",
+    "originalSha256": "2ede5bc55ad08367f49d1b7a5d2a240f3bd2f88d94f972ab8959fd1dac2c4813",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/artifact-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/artifact-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/artifact-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/artifact-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "502dd2b5d53bfd4861894e11f0a5c6ee9bb27e2474db8eb27d6529190df4bb87",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/contract.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/contract.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "d9eaa2d6c514a812011fbffb1e0d38cf9f70dd5306721816e5adda80906b0237",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/current-conversation.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/current-conversation.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/current-conversation.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/download-capability.js",
+    "originalSha256": "62a9b30d0c053507930bb988f0b8a080b5ddfa49f2f6e112e694684eaf9f943c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-capability.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-capability.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-capability.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-capability.js",
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/download-capability.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/download-http.js",
+    "originalSha256": "cf0f88effb3a7e3dd17f7eb9f7d54b7c6184615e3b6f6117eb616c846848be6e",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-http.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-http.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-http.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-http.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/evidence.js",
+    "originalSha256": "2df51a271ad34ba3ed2cd0154c9be05c52e5f487d6ace94162b60c3f84a4b6f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/evidence.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/evidence.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/evidence.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/evidence.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/export-problem.js",
+    "originalSha256": "d23157e3522de46725e27d5db0b139b07e64233a068b9409c9e2d8c1e510f2c9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/export-problem.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/export-problem.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/export-problem.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "45b85ef94f86031f681a651e2e8c88fe8578856f8331dbb4afdc9b9df4960557",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/export-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/export-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/export-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "a0523d3a9c9c84f73f751c003df63c9c214ba18296476aa841eb75d5145dee89",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/index.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/index.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/privacy.js",
+    "originalSha256": "0f8e5d68dcb2a1236b545eec464a6869507f14dd4cb01c818fa2dd823372c600",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/privacy.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/privacy.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/privacy.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/privacy.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/runtime-adapter.js",
+    "originalSha256": "6a255e3519c5add1f8711bf382f1c4a19dbfa9c6e7a620ed633736756b2ae898",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/runtime-adapter.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/runtime-adapter.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/runtime-adapter.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/runtime-adapter.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.1-20260926",
+    "sourcePath": "dist/transcript-model.js",
+    "originalSha256": "b7aaafe3444c73612fdfe677cb7d5be141c5c20162bdf7cdc25d45512bb728f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/transcript-model.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/transcript-model.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/transcript-model.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/transcript-model.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "BUILD-STATUS.md",
+    "originalSha256": "7d58ca4ee49dd71920603492fb03c0a8812ae81f2574d3fe2fe64ba61b26918f",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "899bc8b74a1551835e6607138c84d009a5ec188690749df9193c660fb88eefdd",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "MIRA-HANDOFF.md",
+    "originalSha256": "7e231826e9589608c79e2309e7c80f7beeb810b03ca3e1c694a014431cd42213",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "README.md",
+    "originalSha256": "1b9c59454408b2817056c54c9c19e2c9640d43f9fd33ca44a36339179582d6b9",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "fea37d8869bcb5239094608724894676d2435c19f55050c1ffd55199badc454a",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "f1b20d5804a264b885f160c6e664ac17cf1cd965cd441597b95ecd8a971ca0c8",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "package.json",
+    "originalSha256": "6baa5e5c95ade3fe37bae7680e2bd2629607efe7122bdd67432f4aaa677e7511",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-20260925/package.json",
+    "candidateSha256": "6baa5e5c95ade3fe37bae7680e2bd2629607efe7122bdd67432f4aaa677e7511",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "832c8a683543f6c4d6073bba64e808a59a5355e2e5c06a28909c1e7f9e6e87e0",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "51d2df13783384eab3719aa2de26cce348e75d5e808b0369f06021bc807cfabf",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "reference/v5-current-conversation-original.ts",
+    "originalSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-current-conversation-original.ts",
+    "candidateSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "reference/v5-mtrace-http-original.ts",
+    "originalSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-http-original.ts",
+    "candidateSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "reference/v5-mtrace-panel-original.ts",
+    "originalSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-panel-original.ts",
+    "candidateSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "5d6eb8bf4423fe1ce2010a8a867f22e6cb4c0234d9d322d260026b838972492a",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-20260925/tests/current-conversation.test.mjs",
+    "candidateSha256": "5d6eb8bf4423fe1ce2010a8a867f22e6cb4c0234d9d322d260026b838972492a",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "b9d429b254ec5f7718ce4df59469cb8a8b77cacb156eed666aed6195e825f018",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/contract.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/contract.js",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "7c3dda05ea00c1f33127b5e437938b05708aa6053a3b0d9cba753c33bab9aa91",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "f2f8e4407c8149421def6cf9aaeb7cc19b6e816bede9ce0c8065761da51f19d9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-20260925",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "55588889b97f19b95c1a1fca59a369953bb49c6f64707b328d0aa2915146b77f",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/index.js",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "IMPLEMENTATION.md",
+    "originalSha256": "9c3daa7140f2569932af5e798d936ef3c043001ac728730c599ced79310db655",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "32f1d93fdf84b2c8643390bb0c261deda1f4c0ae08798d4f118906b2d6727dac",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:MIGRATION-NOTES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:MIGRATION-NOTES.md"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "README.md",
+    "originalSha256": "9b7c33a9950829aa335a6966b81d6a8ee41d6f596a8477c992781936a354e122",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "THIRD-PARTY-LICENSES.md",
+    "originalSha256": "ef554488471b8f212eb2b4240eaa5f97ad679f307e2f147e9b9c48de1dfb7305",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:THIRD-PARTY-LICENSES.md",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:THIRD-PARTY-LICENSES.md"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "7abad63c2609bcd37eb648a0b94b251b30355cdcc580cf729c4d7726497dd44e",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "ff6f28790726653039231bf223214f6825751eed:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "48d7c17997f05718e40d76b46cc8bf4e4021cf99264f1c3efdf2fdac160f67e9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "ff6f28790726653039231bf223214f6825751eed:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "package.json",
+    "originalSha256": "97c7e75976a4405efb6cfae99c61c9e71d2cd330b3a7012efd7b3eb280f095b5",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.0-20260926/package.json",
+    "candidateSha256": "97c7e75976a4405efb6cfae99c61c9e71d2cd330b3a7012efd7b3eb280f095b5",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "f2bd119f1a70f2588b80e24095f6917088885fa65380f3402ff17f5e38e3f13d",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.css",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.css",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.css",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "04a8f148a53851a95f2a5e897f39ae780ae7fc8ba69e3bc73d985dbafd960965",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:src/control-ui.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:src/control-ui.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:src/control-ui.js",
+      "ff6f28790726653039231bf223214f6825751eed:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "src/panel-state.js",
+    "originalSha256": "716382e83dc194168ab75042ce31be73ac8e633eb6647fe799f975d59bfa22e9",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "ff6f28790726653039231bf223214f6825751eed:src/panel-state.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/artifact-service.test.mjs",
+    "originalSha256": "aaff86952f40ddc70255385f6d4de3323ec03ec3fb0a8ccf1be58ca26473ad87",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/artifact-service.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/artifact-service.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "c0ad05edba191d348b5d65711a36fe8e1c4b594aebbc34cf1e675a5605a55227",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/current-conversation.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/current-conversation.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/download-capability.test.mjs",
+    "originalSha256": "d4b31cf5c73581c6d2654051a76bb287ee792463168d405f8e13c0b127383ff1",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/download-capability.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/download-capability.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/evidence.test.mjs",
+    "originalSha256": "6168d315f06391172940d61b263985dcb271d8e534c960f0ca5c4cae1622d084",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.1-20260926/tests/evidence.test.mjs",
+    "candidateSha256": "82d5b58e2ea0dae9b1eb87a2515a34d3ac6741128d0de4d89479f20f073c66d3",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/live-validation.mjs",
+    "originalSha256": "e3635cd8a93f6c5003e74372603dd7a843f17f864282c072ef9eda9e2adf0f0d",
+    "disposition": "withheld-private-bound-live-harness",
+    "reason": "contains actual session/host binding; preserved source locally, never executed"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/panel-state.test.mjs",
+    "originalSha256": "4845499f8f1b8308577fa7ef6a82a0904cd0ca0a72002000023da8a12e989bbf",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.0-20260926/tests/panel-state.test.mjs",
+    "candidateSha256": "4845499f8f1b8308577fa7ef6a82a0904cd0ca0a72002000023da8a12e989bbf",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/panel-view.test.mjs",
+    "originalSha256": "7dccc89b8b2394b343b8c09d474a579886e2a84a688d165a42aeca9f2f576603",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.0-20260926/tests/panel-view.test.mjs",
+    "candidateSha256": "7dccc89b8b2394b343b8c09d474a579886e2a84a688d165a42aeca9f2f576603",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "tests/sdk-loader.mjs",
+    "originalSha256": "8398cc9f42237232eac8d1f64014d53c152deb315ba351b297599109d586e94f",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.2.1-20260926/tests/sdk-loader.mjs",
+    "candidateSha256": "8fd870eeb1475fb88f37d9b3faa00b6e2ed1e335b4447b21c436e12b5323f8eb",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/artifact-service.js",
+    "originalSha256": "2ede5bc55ad08367f49d1b7a5d2a240f3bd2f88d94f972ab8959fd1dac2c4813",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/artifact-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/artifact-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/artifact-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/artifact-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "abd2a82ef9f609514473d721569d0e59c6abf17cec83344a8ca6e18c42422094",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "ff6f28790726653039231bf223214f6825751eed:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "d9eaa2d6c514a812011fbffb1e0d38cf9f70dd5306721816e5adda80906b0237",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/current-conversation.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/current-conversation.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/current-conversation.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/download-capability.js",
+    "originalSha256": "62a9b30d0c053507930bb988f0b8a080b5ddfa49f2f6e112e694684eaf9f943c",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-capability.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-capability.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-capability.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-capability.js",
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/download-capability.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/download-http.js",
+    "originalSha256": "cf0f88effb3a7e3dd17f7eb9f7d54b7c6184615e3b6f6117eb616c846848be6e",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/download-http.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/download-http.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/download-http.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/download-http.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/evidence.js",
+    "originalSha256": "2df51a271ad34ba3ed2cd0154c9be05c52e5f487d6ace94162b60c3f84a4b6f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/evidence.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/evidence.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/evidence.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/evidence.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "45b85ef94f86031f681a651e2e8c88fe8578856f8331dbb4afdc9b9df4960557",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/export-service.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/export-service.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/export-service.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "1fa50da7dd63f4fac29b3c5374e618fb16955fb7289aab97567aacc8a5e81a02",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "ff6f28790726653039231bf223214f6825751eed:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/privacy.js",
+    "originalSha256": "0f8e5d68dcb2a1236b545eec464a6869507f14dd4cb01c818fa2dd823372c600",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/privacy.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/privacy.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/privacy.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/privacy.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/runtime-adapter.js",
+    "originalSha256": "6a255e3519c5add1f8711bf382f1c4a19dbfa9c6e7a620ed633736756b2ae898",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/runtime-adapter.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/runtime-adapter.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/runtime-adapter.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/runtime-adapter.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-0.2.0-20260926",
+    "sourcePath": "dist/transcript-model.js",
+    "originalSha256": "b7aaafe3444c73612fdfe677cb7d5be141c5c20162bdf7cdc25d45512bb728f2",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:dist/transcript-model.js",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:dist/transcript-model.js",
+      "2b56c814717e07f12ec857cb0e83ea773da82dd7:dist/transcript-model.js",
+      "ff6f28790726653039231bf223214f6825751eed:dist/transcript-model.js"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "README.md",
+    "originalSha256": "21e33403edb32335da0f30d7f27967dc6ac4ba921543de8d8f047e242f62e787",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "SHA256SUMS",
+    "originalSha256": "445c97181f5eb8510351147dace4d137fa498235f7fb61abfed6c60e8bb27386",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/chat-pane-embedded-panels.test.ts",
+    "originalSha256": "4b48c51948287024fdba31544a9b825e2736afb7f1085224d6e88942bf55b288",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-embedded-panels.test.ts",
+    "candidateSha256": "14165b8e4604ebbd1cb271cac0790df8970f79a616f5bab8aee284c254067ac0",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/chat-pane-embedded-panels.ts",
+    "originalSha256": "5e398fa2e49178d328c2349af3c4bcf63e1fcf81f83389879ceee1d21dad34ff",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-embedded-panels.ts",
+    "candidateSha256": "5e398fa2e49178d328c2349af3c4bcf63e1fcf81f83389879ceee1d21dad34ff",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/chat-pane-layout-render.ts",
+    "originalSha256": "7582ac4647efc32997273f180a6285d78a04ae595c4f50950388608764345932",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-layout-render.ts",
+    "candidateSha256": "7582ac4647efc32997273f180a6285d78a04ae595c4f50950388608764345932",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/chat-pane-panel-shortcuts.ts",
+    "originalSha256": "35fbda89724f77498df764f558a25bf43ff772844332e506e71a67bdf289f8ca",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-panel-shortcuts.ts",
+    "candidateSha256": "35fbda89724f77498df764f558a25bf43ff772844332e506e71a67bdf289f8ca",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/chat-pane-sidebar-layout.ts",
+    "originalSha256": "c84bbf1ebbbcdeb3cb4e4228147d709df2cf2cb5c951b3793611432fbd084b86",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-sidebar-layout.ts",
+    "candidateSha256": "c84bbf1ebbbcdeb3cb4e4228147d709df2cf2cb5c951b3793611432fbd084b86",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/sidebar-layout-normalize.ts",
+    "originalSha256": "3dea4ffeef3390bc295398cc159fb5a6d50c04b0eb9a0d15581a57392fcd4fa6",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/sidebar-layout-normalize.ts",
+    "candidateSha256": "3dea4ffeef3390bc295398cc159fb5a6d50c04b0eb9a0d15581a57392fcd4fa6",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/pages/chat/sidebar-layout-types.ts",
+    "originalSha256": "10cb86ec2cf800fde68caabf65f3ac8a7928ee4d12d3dd399308bbce7fc11a56",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/sidebar-layout-types.ts",
+    "candidateSha256": "10cb86ec2cf800fde68caabf65f3ac8a7928ee4d12d3dd399308bbce7fc11a56",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.test.ts",
+    "originalSha256": "1c46d7bb4a344f7b994cb833fc73847917fe9722e20be9b7d7acd3de8543c0ad",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/components/mtrace/mtrace-panel.test.ts",
+    "candidateSha256": "10193c4251130f3fd40684d86069dfea845dfee3c58b8cb4a73f2dbd08557831",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.ts",
+    "originalSha256": "8c9e5ae1400e1b74264eb723b050713eadd22a752f8da1849501893d45a47b8f",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/components/mtrace/mtrace-panel.ts",
+    "candidateSha256": "8c9e5ae1400e1b74264eb723b050713eadd22a752f8da1849501893d45a47b8f",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "src/gateway/mtrace-http.test.ts",
+    "originalSha256": "7c06b2469d86783ae40f2e562cd6318eb71fb0c53c49eb49c6d6981a99649788",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/gateway/mtrace-http.test.ts",
+    "candidateSha256": "a4a33beee09855566eac907aab90d1e58620fc98a80127709696d32b8f4b7cd2",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "src/gateway/mtrace-http.ts",
+    "originalSha256": "923bd3b0fadf5c98c541d8c81923063fe2d06dbedfafe86481473db8f596cc62",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/gateway/mtrace-http.ts",
+    "candidateSha256": "923bd3b0fadf5c98c541d8c81923063fe2d06dbedfafe86481473db8f596cc62",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "src/gateway/server-http.ts",
+    "originalSha256": "8ad989ccd2d1ba2987da05866ac35edf4a9081b1f73f6c9c475991998d5d5141",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/gateway/server-http.ts",
+    "candidateSha256": "8ad989ccd2d1ba2987da05866ac35edf4a9081b1f73f6c9c475991998d5d5141",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "src/trajectory/command-export.ts",
+    "originalSha256": "1e2463a633a115bbc8a45ab077280d49da97ec9a0538d35ecddecfdb9edeb602",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/trajectory/command-export.ts",
+    "candidateSha256": "1e2463a633a115bbc8a45ab077280d49da97ec9a0538d35ecddecfdb9edeb602",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-v4-audit-source-20260924T224637+0700",
+    "sourcePath": "packages/gateway-protocol/src/schema/sessions-row.ts",
+    "originalSha256": "cc2686e491627c64c891fc1a5e35f1a08d949011cf2d0e9af4a3fc4dce3d9ab3",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/packages/gateway-protocol/src/schema/sessions-row.ts",
+    "candidateSha256": "cc2686e491627c64c891fc1a5e35f1a08d949011cf2d0e9af4a3fc4dce3d9ab3",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "BUILD-STATUS.md",
+    "originalSha256": "7d58ca4ee49dd71920603492fb03c0a8812ae81f2574d3fe2fe64ba61b26918f",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "MIGRATION-NOTES.md",
+    "originalSha256": "899bc8b74a1551835e6607138c84d009a5ec188690749df9193c660fb88eefdd",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "MIRA-HANDOFF-0.1.1.md",
+    "originalSha256": "0f2671bac432b212f78c47faddfa224f8b3afee775aad74648d77878a0d6b46c",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "MIRA-HANDOFF.md",
+    "originalSha256": "7e231826e9589608c79e2309e7c80f7beeb810b03ca3e1c694a014431cd42213",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "README.md",
+    "originalSha256": "1b9c59454408b2817056c54c9c19e2c9640d43f9fd33ca44a36339179582d6b9",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "REVISION-0.1.1.md",
+    "originalSha256": "174bb1603a4d19b2bce94efb00afd326bf26ec2c929d1b1a28b1a48132573a25",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "openclaw.plugin.json",
+    "originalSha256": "76f31a455a232f1306ba2505a2d64d204f8fb932be2712cb316a8d626194912e",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:openclaw.plugin.json"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "package-lock.json",
+    "originalSha256": "714d6c48422baf1a335e6d5aebe3990d8be8011da4b7f0428814dd84e3fa5096",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:package-lock.json"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "package.json",
+    "originalSha256": "3dff081e1e53ddc816564fb116cb89b98f2cbda58fd2cbfd13a28ad1b7b98940",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-source-0.1.1-20260925/package.json",
+    "candidateSha256": "3dff081e1e53ddc816564fb116cb89b98f2cbda58fd2cbfd13a28ad1b7b98940",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "src/control-ui.css",
+    "originalSha256": "2f55d6860a2c4e0edcf2c536b7079f1514b619523e6ace4229a2f70e4307f33d",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:src/control-ui.css",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:src/control-ui.css"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "src/control-ui.js",
+    "originalSha256": "a9699969f6b389d662c3f910f00751a9ac7799f91585ba74e76da478929551f0",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:src/control-ui.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:src/control-ui.js"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "reference/v5-current-conversation-original.ts",
+    "originalSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-current-conversation-original.ts",
+    "candidateSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "reference/v5-mtrace-http-original.ts",
+    "originalSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-http-original.ts",
+    "candidateSha256": "8acb6845b06f41e8d4b747593ffdc15eb75113558de29544e24ed95a60770334",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "reference/v5-mtrace-panel-original.ts",
+    "originalSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-panel-original.ts",
+    "candidateSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "tests/current-conversation.test.mjs",
+    "originalSha256": "c0ad05edba191d348b5d65711a36fe8e1c4b594aebbc34cf1e675a5605a55227",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "d7d468425dd7d4b327b8fc0dc43ba8e09520962d:tests/current-conversation.test.mjs",
+      "0a7457cad0604bc1bfabd74f6e499e34f76094e8:tests/current-conversation.test.mjs"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "dist/contract.js",
+    "originalSha256": "b9d429b254ec5f7718ce4df59469cb8a8b77cacb156eed666aed6195e825f018",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/contract.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/contract.js",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/contract.js"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "dist/current-conversation.js",
+    "originalSha256": "34673a97460f354607e87eab3fe393119cb3d8d4770bac2e0eb0b2a97bee2d38",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "9127da23cc70a5ae060bdc6b147612336ca60583:dist/current-conversation.js",
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/current-conversation.js"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "dist/export-service.js",
+    "originalSha256": "614523f4a9188c1a01e97f687c4eebacb87246f5cefecb42a5f74d5adde4cc70",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/export-service.js"
+    ]
+  },
+  {
+    "sourceLabel": "historical-source-0.1.1-20260925",
+    "sourcePath": "dist/index.js",
+    "originalSha256": "55588889b97f19b95c1a1fca59a369953bb49c6f64707b328d0aa2915146b77f",
+    "disposition": "exact-existing-public-blob",
+    "publicLocations": [
+      "64813bffc0892b8649f878382cb4fecd1c51d4c6:dist/index.js",
+      "e6324258440bb94d8e0f53e17beb6e911d99ea62:dist/index.js"
+    ]
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/HANDOFF-TO-MIRA.md",
+    "originalSha256": "7cc642a1de035cc577ab1e694b1dd03a5d51ee0a6e882568ad51d37a149f6c6e",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/README.md",
+    "originalSha256": "3d51b04ed3989e3bcdf9483f9c7413562ec287c658f0ea6c493195b10363ecd7",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/SHA256SUMS.txt",
+    "originalSha256": "a87fad07fa8cc81ad10debadd62201dad015a72b5ad4661eeea23fc835dbc8f0",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/apply-and-validate.sh",
+    "originalSha256": "0aef58297e1a229e357e5828afd25180922bddc4f18ad6b9e2c792126c9280ad",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/apply-and-validate.sh",
+    "candidateSha256": "31044672f30366b0b96d70422066a37022a1b37320623a89f522e6fda89ca6f7",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder",
+      "personal operator name generalized"
+    ]
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/mtrace-v5-chatgpt-final-2026.9.6.patch",
+    "originalSha256": "e3ca3210fd09baa3623c708ef80acfbc584e79d51ba03aaeccc55c20bbf27cf6",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/mtrace-v5-chatgpt-final-2026.9.6.patch",
+    "candidateSha256": "e3ca3210fd09baa3623c708ef80acfbc584e79d51ba03aaeccc55c20bbf27cf6",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/gateway/mtrace-http.test.ts",
+    "originalSha256": "c2bd76c1c29e7ce12d11e93c4bdba0d9f0dddfdb882b0a90411d327116b74447",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/gateway/mtrace-http.test.ts",
+    "candidateSha256": "750ef088424e502fd03da62f785fe6f4fc4dab19e9a6312e9b60531ed350ffca",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/gateway/mtrace-http.ts",
+    "originalSha256": "f818fbe3e5dea258afd47f7a000d410f56a5a21ea7f3b8a78e4dd4258eb24df5",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/gateway/mtrace-http.ts",
+    "candidateSha256": "f818fbe3e5dea258afd47f7a000d410f56a5a21ea7f3b8a78e4dd4258eb24df5",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/current-conversation-export.test.ts",
+    "originalSha256": "3bcacab29ba23a2a5e8b826ab472dbc864ef13aa4edf14e73d4056ea3aefa266",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/current-conversation-export.test.ts",
+    "candidateSha256": "3bcacab29ba23a2a5e8b826ab472dbc864ef13aa4edf14e73d4056ea3aefa266",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/current-conversation.test.ts",
+    "originalSha256": "6d85f997d333a2a83178c94a249a997b888778f3218f934ca36ba8dad30b69c9",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/current-conversation.test.ts",
+    "candidateSha256": "6d85f997d333a2a83178c94a249a997b888778f3218f934ca36ba8dad30b69c9",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/current-conversation.ts",
+    "originalSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-current-conversation-original.ts",
+    "candidateSha256": "51d376bd1404bbff79adea7ed4ab1721b69295b76e4961bf99d928ddfdfb5a25",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/export.ts",
+    "originalSha256": "cee29022a21635b8c16b54f1b0fc5206cf3311fccfdc479feea5b08c556cc3cb",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/export.ts",
+    "candidateSha256": "cee29022a21635b8c16b54f1b0fc5206cf3311fccfdc479feea5b08c556cc3cb",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "historical-v5-final-package-20260925",
+    "sourcePath": "mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/types.ts",
+    "originalSha256": "b702ca9d5bfdc7a7220e1daa87cffc3d758b6a8d7ed04dfe46ce25f2ba8c3ecf",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-final-package-20260925/mtrace-v5-chatgpt-final-2026.9.6/patched-files/src/trajectory/types.ts",
+    "candidateSha256": "b702ca9d5bfdc7a7220e1daa87cffc3d758b6a8d7ed04dfe46ce25f2ba8c3ecf",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-audit-20260926",
+    "sourcePath": "audit-pipeline.mjs",
+    "originalSha256": "1c46a01e5099ee353b09b225b689463dc59803317f6c949b2d889796f63aef64",
+    "disposition": "withheld-private-bound-live-harness",
+    "reason": "contains actual session/host binding; preserved source locally, never executed"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-audit-20260926",
+    "sourcePath": "measure-artifacts.py",
+    "originalSha256": "db1a44514af22d056212a863be174ba33619c8c89bbba03ed2774efc4f072d71",
+    "disposition": "withheld-private-bound-live-harness",
+    "reason": "contains actual session/host binding; preserved source locally, never executed"
+  },
+  {
+    "sourceLabel": "mtrace-feature-plugin-audit-20260926",
+    "sourcePath": "root-cause-reproducer.test.mjs",
+    "originalSha256": "9463fe9ee6bf80b3fb8d856ee09ee17360db89f0a2a48d48f8c59388613d89f3",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-feature-plugin-audit-20260926/root-cause-reproducer.test.mjs",
+    "candidateSha256": "31ef33ada647b7c32edba340bd8b95cea689dc0a9925154a01bbe44cffeb47fe",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "historical-v5-qc-harness-r2-20260925",
+    "sourcePath": "mtrace-v5-final-qc-harness-r2/HANDOFF-TO-MIRA.md",
+    "originalSha256": "6a293d43d9b93b01316184bee07f026177e5c694d154fafa9b95bec9741503ae",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-v5-qc-harness-r2-20260925",
+    "sourcePath": "mtrace-v5-final-qc-harness-r2/SHA256SUMS.txt",
+    "originalSha256": "7a2d466c796d94f9256fa5244a253fcdc15880f9c7804fe2b92d5b9bc8c325b0",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "historical-v5-qc-harness-r2-20260925",
+    "sourcePath": "mtrace-v5-final-qc-harness-r2/mtrace-v5-final-qc-multireset-test.patch",
+    "originalSha256": "b958c13c62179da07caa7a45132555dad73cf32d85aa14f1e0510a2fd2ef9f78",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-qc-harness-r2-20260925/mtrace-v5-final-qc-harness-r2/mtrace-v5-final-qc-multireset-test.patch",
+    "candidateSha256": "c8803bcbae0f064870b45539cb1d9947b22bb40484ef654b6dd8fbd1fedf7eeb",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "historical-v5-qc-harness-r2-20260925",
+    "sourcePath": "mtrace-v5-final-qc-harness-r2/run-final-artifact-qc.sh",
+    "originalSha256": "b2640ca686648e75152a4c42253ec0952b71fd335405968834cdc30693b737cc",
+    "disposition": "selected-source",
+    "candidatePath": "historical/historical-v5-qc-harness-r2-20260925/mtrace-v5-final-qc-harness-r2/run-final-artifact-qc.sh",
+    "candidateSha256": "662d90f880d101111241da5ef0e0cd859c7f0dc25779b15cbc30624eddf6a0d1",
+    "transformations": [
+      "host path replaced by explicit non-operational placeholder"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "README.md",
+    "originalSha256": "f3fe4720954c1dc78e4f599787c36f29eeb1d8db4b797cb5b1455610b6a7514c",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "SHA256SUMS",
+    "originalSha256": "2c6b173e6ddbb3abbb2abeda0735172bd49f929569112b36086dfef6b92d1c07",
+    "disposition": "local-original; selected project facts summarized in docs/PROJECT_STATUS.md",
+    "reason": "historical reports not current test proof; host-specific context removed from public dossier"
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "package.json",
+    "originalSha256": "a90468a594f7fd9bd4d1c5117bd8e63828e24cd116ff56fced694bf8b9a32ab1",
+    "disposition": "withheld-mixed-upstream-manifest",
+    "reason": "large host core manifests not necessary to archive selected MTrace delta; originals preserved"
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/package.json",
+    "originalSha256": "635a2a49f8439488118a53c3a4dffde5525df8e555983a476abd6ca58f34dec1",
+    "disposition": "withheld-mixed-upstream-manifest",
+    "reason": "large host core manifests not necessary to archive selected MTrace delta; originals preserved"
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/src/pages/chat/chat-pane-embedded-panels.test.ts",
+    "originalSha256": "4b48c51948287024fdba31544a9b825e2736afb7f1085224d6e88942bf55b288",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-embedded-panels.test.ts",
+    "candidateSha256": "14165b8e4604ebbd1cb271cac0790df8970f79a616f5bab8aee284c254067ac0",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/src/pages/chat/chat-pane-embedded-panels.ts",
+    "originalSha256": "0741d6911ff0494a6d9e5950dfd41955f295d19d1be4e94865193d7381e675e6",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/ui/src/pages/chat/chat-pane-embedded-panels.ts",
+    "candidateSha256": "0741d6911ff0494a6d9e5950dfd41955f295d19d1be4e94865193d7381e675e6",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/src/pages/chat/chat-pane-sidebar-layout.ts",
+    "originalSha256": "c84bbf1ebbbcdeb3cb4e4228147d709df2cf2cb5c951b3793611432fbd084b86",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/ui/src/pages/chat/chat-pane-sidebar-layout.ts",
+    "candidateSha256": "c84bbf1ebbbcdeb3cb4e4228147d709df2cf2cb5c951b3793611432fbd084b86",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.test.ts",
+    "originalSha256": "a515c0599e6a07f24db12bfbaf7277acd77df69a991a13585c20d0c048ff0b6d",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/ui/src/components/mtrace/mtrace-panel.test.ts",
+    "candidateSha256": "21dd7aefeaa2ac69ae204f21cc721224d9b4e31236dc6eb32744a306ab34fd86",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.ts",
+    "originalSha256": "369ea007a8874c50a82d870871c2315755e8b0e56aad4f1ab414f0324365a7b3",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/ui/src/components/mtrace/mtrace-panel.ts",
+    "candidateSha256": "369ea007a8874c50a82d870871c2315755e8b0e56aad4f1ab414f0324365a7b3",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/commands/export-trajectory.test.ts",
+    "originalSha256": "04c9458e4afda56d1fff4cfd48a61c47c36b271f81375a722ddf332807c05f83",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/commands/export-trajectory.test.ts",
+    "candidateSha256": "04c9458e4afda56d1fff4cfd48a61c47c36b271f81375a722ddf332807c05f83",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/commands/export-trajectory.ts",
+    "originalSha256": "737d8844c943eb9339092626195a5af338b6acd8b79136801d1bf331b1e29c49",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/commands/export-trajectory.ts",
+    "candidateSha256": "737d8844c943eb9339092626195a5af338b6acd8b79136801d1bf331b1e29c49",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/gateway/gateway-trajectory-export.live.test.ts",
+    "originalSha256": "dcdf654eaddd3688706f0d8ad004b8723724caae9da3301007aeb26add4407fb",
+    "disposition": "withheld-live-harness",
+    "reason": "references live integration behavior, not verified synthetic-only"
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/gateway/mtrace-http.test.ts",
+    "originalSha256": "e284b82e4fb74b1a91ff4f53b0d5aae0e6aa83cb1e8384cb90b9c33325b106eb",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/gateway/mtrace-http.test.ts",
+    "candidateSha256": "03829f6425ac165c3130983570ca5183a08e89437b412ac9d5b931fe6aa5465f",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ]
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/gateway/mtrace-http.ts",
+    "originalSha256": "9265a7053bb988c081db5101912adcb69068437c9fd88e02c54aeacf720a5354",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/gateway/mtrace-http.ts",
+    "candidateSha256": "9265a7053bb988c081db5101912adcb69068437c9fd88e02c54aeacf720a5354",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/gateway/server-http.ts",
+    "originalSha256": "8ad989ccd2d1ba2987da05866ac35edf4a9081b1f73f6c9c475991998d5d5141",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/gateway/server-http.ts",
+    "candidateSha256": "8ad989ccd2d1ba2987da05866ac35edf4a9081b1f73f6c9c475991998d5d5141",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/trajectory/command-export.ts",
+    "originalSha256": "1e2463a633a115bbc8a45ab077280d49da97ec9a0538d35ecddecfdb9edeb602",
+    "disposition": "exact-duplicate-of-selected",
+    "candidatePath": "historical/mtrace-v4-audit-source-20260924T224637+0700/src/trajectory/command-export.ts",
+    "candidateSha256": "1e2463a633a115bbc8a45ab077280d49da97ec9a0538d35ecddecfdb9edeb602",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/trajectory/export.test.ts",
+    "originalSha256": "b267b4257e2da1886a860de921a67c7a774845ac68983eb8b78d4458e7180e00",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/trajectory/export.test.ts",
+    "candidateSha256": "b267b4257e2da1886a860de921a67c7a774845ac68983eb8b78d4458e7180e00",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "mtrace-source-review-2026-09-24",
+    "sourcePath": "src/trajectory/export.ts",
+    "originalSha256": "76096da5cbff44de2151ea0a4bf9c3844fe6674e044690edc087fdf62d509a26",
+    "disposition": "selected-source",
+    "candidatePath": "historical/mtrace-source-review-2026-09-24/src/trajectory/export.ts",
+    "candidateSha256": "76096da5cbff44de2151ea0a4bf9c3844fe6674e044690edc087fdf62d509a26",
+    "transformations": []
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "LICENSE",
+    "originalSha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+    "candidatePath": "historical/staging-zip-selected/LICENSE",
+    "candidateSha256": "73571b25326281d369087f469842c02444fe39faaecebda4d82ed21ff3a1c29d",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "THIRD_PARTY_NOTICES.md",
+    "originalSha256": "c1d1bbc550feee74853eba104e347341569cbbbe37a9f77659993ca0766277d5",
+    "candidatePath": "historical/staging-zip-selected/THIRD_PARTY_NOTICES.md",
+    "candidateSha256": "c1d1bbc550feee74853eba104e347341569cbbbe37a9f77659993ca0766277d5",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "mtrace-v4-bridge.patch",
+    "originalSha256": "76d4662fca556cdb2bae69bb02da243aae8e7696ad47857487e13e196efc9c38",
+    "candidatePath": "historical/staging-zip-selected/mtrace-v4-bridge.patch",
+    "candidateSha256": "76d4662fca556cdb2bae69bb02da243aae8e7696ad47857487e13e196efc9c38",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/gateway/mtrace-http.ts",
+    "originalSha256": "7a564cf570136ad02192511b7bc3248e322cbfd07a033e0720c320e7ce8711d0",
+    "candidatePath": "historical/staging-zip-selected/src/gateway/mtrace-http.ts",
+    "candidateSha256": "7a564cf570136ad02192511b7bc3248e322cbfd07a033e0720c320e7ce8711d0",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/gateway/mtrace-http.test.ts",
+    "originalSha256": "c513b2b7a0462b86b009571f66975e45c23e0e923f9ced7b22da19d7d59f8925",
+    "candidatePath": "historical/staging-zip-selected/src/gateway/mtrace-http.test.ts",
+    "candidateSha256": "e0b7dc620a2f8cd62b0feb631317c24a0f44d58cc41db716f6db0205db56611a",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.ts",
+    "originalSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "candidatePath": "historical/mtrace-feature-plugin-0.1.2-20260925/reference/v5-mtrace-panel-original.ts",
+    "candidateSha256": "f3fdf514c168447034d2ed08161859b6c0cd7e96dd109d481fe496e7130cc9ec",
+    "transformations": [],
+    "disposition": "exact-duplicate-of-selected"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "ui/src/components/mtrace/mtrace-panel.test.ts",
+    "originalSha256": "0f789542f0b084304ff79d96bd2e618d13c28961de66f7c70973c765db84a21c",
+    "candidatePath": "historical/staging-zip-selected/ui/src/components/mtrace/mtrace-panel.test.ts",
+    "candidateSha256": "32024d8bf3eed3598a18d9f468464334429a045261f361f801495aa36a279d06",
+    "transformations": [
+      "mock fixture UUID normalized"
+    ],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/cleanup.test.ts",
+    "originalSha256": "6fde0a94909b54985caf3e828daff8c6076600822ec10663c4ab1cda46d64588",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/cleanup.test.ts",
+    "candidateSha256": "6fde0a94909b54985caf3e828daff8c6076600822ec10663c4ab1cda46d64588",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/cleanup.ts",
+    "originalSha256": "ccb201c936e0a387262e258ad75bb4342c1c5a5a80fa9300a7b6f18ee1661c94",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/cleanup.ts",
+    "candidateSha256": "ccb201c936e0a387262e258ad75bb4342c1c5a5a80fa9300a7b6f18ee1661c94",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/command-export.test.ts",
+    "originalSha256": "68d24a75194cc843bc9c5ba55ea93ff45913c6e5ecc8a1a6d28ae3629395cf5a",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/command-export.test.ts",
+    "candidateSha256": "68d24a75194cc843bc9c5ba55ea93ff45913c6e5ecc8a1a6d28ae3629395cf5a",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/command-export.ts",
+    "originalSha256": "73a06c592826b9c31861e6b31e50fcd213fccffee5ea67ddb73273a9a0c0a378",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/command-export.ts",
+    "candidateSha256": "73a06c592826b9c31861e6b31e50fcd213fccffee5ea67ddb73273a9a0c0a378",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/current-conversation-export.test.ts",
+    "originalSha256": "7c547442aa758908f2699d7891a518694e026b9cf3d87b00bcfca0c96f8267d8",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/current-conversation-export.test.ts",
+    "candidateSha256": "7c547442aa758908f2699d7891a518694e026b9cf3d87b00bcfca0c96f8267d8",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/current-conversation.test.ts",
+    "originalSha256": "be0bc21e8e31e02b7356c4eadbbf3ad5dc396b502f538dc7d8122d0e9efaf5b1",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/current-conversation.test.ts",
+    "candidateSha256": "be0bc21e8e31e02b7356c4eadbbf3ad5dc396b502f538dc7d8122d0e9efaf5b1",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/current-conversation.ts",
+    "originalSha256": "b77f715a9fa09559820e0e0f3c978fbdc4728f3d8a7c3509cbdac619227a6ea3",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/current-conversation.ts",
+    "candidateSha256": "b77f715a9fa09559820e0e0f3c978fbdc4728f3d8a7c3509cbdac619227a6ea3",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/export.test-helpers.ts",
+    "originalSha256": "eed70d094b58555a84f1b8749e393ecc7f37dc165eda768a873d0ab0c85c497e",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/export.test-helpers.ts",
+    "candidateSha256": "eed70d094b58555a84f1b8749e393ecc7f37dc165eda768a873d0ab0c85c497e",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/export.test.ts",
+    "originalSha256": "85037d21d9a10548fcf21824010a7fbe73b11d4f1d04322c682caf20514bf930",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/export.test.ts",
+    "candidateSha256": "85037d21d9a10548fcf21824010a7fbe73b11d4f1d04322c682caf20514bf930",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/export.ts",
+    "originalSha256": "cdbe618c685f7eb159c028f8c039fa23d9744588324709a2810bc1da92ef4cf7",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/export.ts",
+    "candidateSha256": "cdbe618c685f7eb159c028f8c039fa23d9744588324709a2810bc1da92ef4cf7",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/metadata.test.ts",
+    "originalSha256": "61c0a0331de57504b509b6dac6ebdd88ab0d6d7a24253181efc2a1ee9882fc5c",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/metadata.test.ts",
+    "candidateSha256": "61c0a0331de57504b509b6dac6ebdd88ab0d6d7a24253181efc2a1ee9882fc5c",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/metadata.ts",
+    "originalSha256": "5095ce34e77f474204a784c1c939e72be54537e6eee370947534849ececfd120",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/metadata.ts",
+    "candidateSha256": "5095ce34e77f474204a784c1c939e72be54537e6eee370947534849ececfd120",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/paths.ts",
+    "originalSha256": "e23365590801f1446b3856c29f61fd105090e3e2f1a3b98638f2122e273ff2d1",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/paths.ts",
+    "candidateSha256": "e23365590801f1446b3856c29f61fd105090e3e2f1a3b98638f2122e273ff2d1",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime-file.ts",
+    "originalSha256": "4389159601654c974aa760ba58d34733428c642fa5a31c55fcd27375085ea519",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime-file.ts",
+    "candidateSha256": "4389159601654c974aa760ba58d34733428c642fa5a31c55fcd27375085ea519",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime-store.sqlite.test.ts",
+    "originalSha256": "fe6772f33e74525aa57365801aa0ab71b0b9020ac0d728977de9c87963dde06e",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime-store.sqlite.test.ts",
+    "candidateSha256": "fe6772f33e74525aa57365801aa0ab71b0b9020ac0d728977de9c87963dde06e",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime-store.sqlite.ts",
+    "originalSha256": "4c7e1f1570190756b6e978bf81e362ef94b8d8655484477a6d019e1191e1933c",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime-store.sqlite.ts",
+    "candidateSha256": "4c7e1f1570190756b6e978bf81e362ef94b8d8655484477a6d019e1191e1933c",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime.test.ts",
+    "originalSha256": "852a1a6ebac3d51811b656f90791c034c0e5d17bf9c08f4df74353fd21c7c1d1",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime.test.ts",
+    "candidateSha256": "852a1a6ebac3d51811b656f90791c034c0e5d17bf9c08f4df74353fd21c7c1d1",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime.tool-definitions.test.ts",
+    "originalSha256": "696ef250ff5d65d1180af1c7a0f548627382611191a811cd56b9bec1d98a0d84",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime.tool-definitions.test.ts",
+    "candidateSha256": "696ef250ff5d65d1180af1c7a0f548627382611191a811cd56b9bec1d98a0d84",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/runtime.ts",
+    "originalSha256": "724052ffab39ed39af5b4845a2064de199f435e73867d9747a0adf19576a1377",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/runtime.ts",
+    "candidateSha256": "724052ffab39ed39af5b4845a2064de199f435e73867d9747a0adf19576a1377",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  },
+  {
+    "sourceLabel": "staging-zip-selected",
+    "sourcePath": "src/trajectory/types.ts",
+    "originalSha256": "1ac3e0ca87706d129084a0f8161e3cff4dc2de00eecd58baf01a8fda05c922ab",
+    "candidatePath": "historical/staging-zip-selected/src/trajectory/types.ts",
+    "candidateSha256": "1ac3e0ca87706d129084a0f8161e3cff4dc2de00eecd58baf01a8fda05c922ab",
+    "transformations": [],
+    "disposition": "selected-zip-source"
+  }
+]

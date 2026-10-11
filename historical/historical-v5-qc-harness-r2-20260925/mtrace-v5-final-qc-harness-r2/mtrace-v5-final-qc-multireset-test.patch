@@ -1,0 +1,236 @@
+--- a/src/gateway/mtrace-http.test.ts
++++ b/src/gateway/mtrace-http.test.ts
+@@ -49,6 +49,8 @@
+   authorizeControlUiReadRequestOrReply: (...args: unknown[]) => state.auth(...args),
+ }));
+ 
++import { exportTrajectoryBundle } from "../trajectory/export.js";
++import { assistantMessage, userMessage } from "../trajectory/export.test-helpers.js";
+ import { handleMtraceHttpRequest, type MtraceExportMode } from "./mtrace-http.js";
+ 
+ const SESSION_ID = "11111111-2222-4333-8444-555555555555";
+@@ -170,6 +172,138 @@
+   };
+ }
+ 
++function persistedFixtureUser(content: string, runId: string) {
++  return { ...userMessage(content), idempotencyKey: `${runId}:user` };
++}
++
++function persistedFixtureAssistant(content: string, runId: string) {
++  return {
++    ...assistantMessage([{ type: "text" as const, text: content }]),
++    __openclaw: { runId },
++  };
++}
++
++async function writeMultiResetFixtureInputs(root: string): Promise<{
++  runtimeFile: string;
++  sessionFile: string;
++}> {
++  const sessionFile = path.join(root, "multi-reset-session.jsonl");
++  const runtimeFile = path.join(root, "multi-reset-runtime.jsonl");
++  const ts = (n: number) => new Date(Date.UTC(2026, 8, 25, 1, 0, n)).toISOString();
++  const entries = [
++    { type: "session", version: 3, id: SESSION_ID, timestamp: ts(0), cwd: root },
++    {
++      type: "message",
++      id: "epoch-a-user",
++      parentId: null,
++      timestamp: ts(1),
++      message: persistedFixtureUser("EPOCH_A_ONLY", "run-a"),
++    },
++    {
++      type: "message",
++      id: "epoch-a-assistant",
++      parentId: "epoch-a-user",
++      timestamp: ts(2),
++      message: persistedFixtureAssistant("EPOCH_A_ANSWER", "run-a"),
++    },
++    {
++      type: "reset",
++      id: "reset-a-b",
++      parentId: "epoch-a-assistant",
++      timestamp: ts(3),
++      reason: "reset",
++    },
++    {
++      type: "message",
++      id: "reset-a-b-command",
++      parentId: "reset-a-b",
++      timestamp: ts(4),
++      message: persistedFixtureUser("/reset", "reset-a-b"),
++    },
++    {
++      type: "message",
++      id: "reset-a-b-ack",
++      parentId: "reset-a-b-command",
++      timestamp: ts(5),
++      message: persistedFixtureAssistant("✅ Session reset.", "reset-a-b"),
++    },
++    {
++      type: "message",
++      id: "epoch-b-user",
++      parentId: "reset-a-b-ack",
++      timestamp: ts(6),
++      message: persistedFixtureUser("EPOCH_B_ONLY", "run-b"),
++    },
++    {
++      type: "message",
++      id: "epoch-b-assistant",
++      parentId: "epoch-b-user",
++      timestamp: ts(7),
++      message: persistedFixtureAssistant("EPOCH_B_ANSWER", "run-b"),
++    },
++    {
++      type: "reset",
++      id: "reset-b-c",
++      parentId: "epoch-b-assistant",
++      timestamp: ts(8),
++      reason: "reset",
++    },
++    {
++      type: "message",
++      id: "reset-b-c-command",
++      parentId: "reset-b-c",
++      timestamp: ts(9),
++      message: persistedFixtureUser("/reset", "reset-b-c"),
++    },
++    {
++      type: "message",
++      id: "reset-b-c-ack",
++      parentId: "reset-b-c-command",
++      timestamp: ts(10),
++      message: persistedFixtureAssistant("✅ Session reset.", "reset-b-c"),
++    },
++    {
++      type: "message",
++      id: "epoch-c-user",
++      parentId: "reset-b-c-ack",
++      timestamp: ts(11),
++      message: persistedFixtureUser("EPOCH_C_ONLY", "run-c"),
++    },
++    {
++      type: "message",
++      id: "epoch-c-assistant",
++      parentId: "epoch-c-user",
++      timestamp: ts(13),
++      message: persistedFixtureAssistant("EPOCH_C_ANSWER", "run-c"),
++    },
++  ];
++  const runtime = (marker: string, timestamp: string, seq: number, runId: string) => ({
++    traceSchema: "openclaw-trajectory",
++    schemaVersion: 1,
++    traceId: SESSION_ID,
++    source: "runtime",
++    type: "prompt.submitted",
++    ts: timestamp,
++    seq,
++    sourceSeq: seq,
++    sessionId: SESSION_ID,
++    sessionKey: SESSION_KEY,
++    runId,
++    data: { prompt: marker },
++  });
++  const runtimeRows = [
++    runtime("PROMPT_A_ONLY", ts(2), 1, "run-a"),
++    runtime("PROMPT_B_ONLY", ts(7), 2, "run-b"),
++    runtime("PROMPT_C_ONLY", ts(12), 3, "run-c"),
++  ];
++  await fs.writeFile(sessionFile, `${entries.map((entry) => JSON.stringify(entry)).join("\n")}\n`);
++  await fs.writeFile(
++    runtimeFile,
++    `${runtimeRows.map((entry) => JSON.stringify(entry)).join("\n")}\n`,
++  );
++  return { runtimeFile, sessionFile };
++}
++
+ beforeEach(async () => {
+   temp = await fs.mkdtemp(path.join(os.tmpdir(), "mtrace-http-test-"));
+   state.workspace = temp;
+@@ -355,6 +489,85 @@
+     expect(markdown).not.toContain("✅ Session reset.");
+   });
+ 
++  it("creates all four Mtrace artifacts from one real A-reset-B-reset-C trajectory", async () => {
++    const fixture = await writeMultiResetFixtureInputs(temp);
++    let exportIndex = 0;
++    state.exportTrajectory.mockImplementation(
++      async (params: { conversationScope?: "current"; sessionId: string; sessionKey: string }) => {
++        outputDir = path.join(
++          temp,
++          ".openclaw",
++          "trajectory-exports",
++          `multi-reset-${exportIndex++}`,
++        );
++        const bundle = await exportTrajectoryBundle({
++          outputDir,
++          sessionFile: fixture.sessionFile,
++          runtimeFile: fixture.runtimeFile,
++          sessionId: params.sessionId,
++          sessionKey: params.sessionKey,
++          workspaceDir: temp,
++          conversationScope: params.conversationScope,
++        });
++        return {
++          outputDir: bundle.outputDir,
++          displayPath: path.relative(temp, bundle.outputDir),
++          sessionId: params.sessionId,
++          eventCount: bundle.manifest.eventCount,
++          runtimeEventCount: bundle.manifest.runtimeEventCount,
++          transcriptEventCount: bundle.manifest.transcriptEventCount,
++          files: bundle.files,
++        };
++      },
++    );
++
++    for (const mode of ["full", "transcript", "prompt-tool-runtime", "history"] as const) {
++      const exported = await invoke("POST", "/__openclaw__/mtrace/export", exportBody(mode));
++      expect(exported.status, JSON.stringify(exported.payload)).toBe(200);
++      const artifactId = exported.payload?.artifactId;
++      expect(typeof artifactId).toBe("string");
++      const downloaded = await invoke(
++        "GET",
++        `/__openclaw__/mtrace/download/${String(artifactId)}`,
++      );
++      expect(downloaded.status).toBe(200);
++      const markdown = downloaded.text;
++
++      if (mode === "history") {
++        expect(markdown).toContain("scope: full-session");
++        expect(markdown).toContain("EPOCH_A_ONLY");
++        expect(markdown).toContain("EPOCH_B_ONLY");
++        expect(markdown).toContain("EPOCH_C_ONLY");
++        expect(markdown).toContain("PROMPT_A_ONLY");
++        expect(markdown).toContain("PROMPT_B_ONLY");
++        expect(markdown).toContain("PROMPT_C_ONLY");
++        continue;
++      }
++
++      expect(markdown).toContain("scope: since-last-reset");
++      expect(markdown).toContain("EPOCH_C_ONLY");
++      expect(markdown).not.toContain("EPOCH_A_ONLY");
++      expect(markdown).not.toContain("EPOCH_B_ONLY");
++      expect(markdown).not.toContain("PROMPT_A_ONLY");
++      expect(markdown).not.toContain("PROMPT_B_ONLY");
++      expect(markdown).not.toContain('"[Truncated]"');
++      expect(markdown).not.toContain('"content":"/reset"');
++      expect(markdown).not.toContain("✅ Session reset.");
++      expect(exported.payload).toMatchObject({
++        scope: "since-last-reset",
++        resetBoundaryAt: new Date(Date.UTC(2026, 8, 25, 1, 0, 8)).toISOString(),
++        conversationStartedAt: new Date(Date.UTC(2026, 8, 25, 1, 0, 11)).toISOString(),
++      });
++
++      if (mode === "transcript") {
++        expect(markdown).toContain("BEGIN FILE: current-transcript.jsonl");
++        expect(markdown).not.toContain("PROMPT_C_ONLY");
++      } else {
++        expect(markdown).toContain("PROMPT_C_ONLY");
++      }
++    }
++  });
++
+   it("uses the manifest inventory when a legacy summary claims optional prompt files", async () => {
+     omitOptional = true;
+     await fs.rm(path.join(outputDir, "system-prompt.txt"));

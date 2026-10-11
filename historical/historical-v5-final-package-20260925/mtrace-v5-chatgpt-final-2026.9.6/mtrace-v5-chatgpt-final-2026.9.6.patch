@@ -1,0 +1,974 @@
+diff --git a/src/gateway/mtrace-http.test.ts b/src/gateway/mtrace-http.test.ts
+index 433ca15..29d8bd0 100644
+--- a/src/gateway/mtrace-http.test.ts
++++ b/src/gateway/mtrace-http.test.ts
+@@ -69,24 +69,20 @@ async function writeBundle(current = false) {
+     '{"source":"transcript","type":"user.message","ts":"2026-09-19T02:52:45.277Z","entryId":"current-user","data":{"message":{"role":"user","content":"CURRENT EPOCH START"}}}',
+     '{"source":"runtime","type":"session.started","ts":"2026-09-19T02:52:45.300Z","runId":"current-run"}',
+     '{"source":"transcript","type":"tool.call","ts":"2026-09-19T02:52:46.000Z","entryId":"current-tool","data":{"name":"exec"}}',
+-    '{"source":"runtime","type":"tool.result","ts":"2026-09-19T02:52:46.500Z","runId":"current-run","invalid":}',
+-    '{"source":"transcript","type":"assistant.message","ts":"2026-09-19T02:52:47.000Z","entryId":"current-assistant","data":{"message":{"role":"assistant","content":"CURRENT EPOCH END"}}}',
++    '{"source":"runtime","type":"tool.result","ts":"2026-09-19T02:52:46.500Z","runId":"current-run","data":{"nested":{"source":"transcript"}},"invalid":}',
++    '{"source":"transcript","type":"assistant.message","ts":"2026-09-19T02:52:47.000Z","entryId":"current-assistant","data":{"message":{"role":"assistant","content":"CURRENT EPOCH END"},"nested":{"source":"runtime"}}}',
+   ];
+   const files: Record<string, string> = {
+     "metadata.json": current ? "metadata-current-only" : "metadata-raw",
+-    "artifacts.json": "artifacts-raw",
+-    "prompts.json": "prompts-old-and-current-raw",
+-    "system-prompt.txt": "system-prompt-raw",
+-    "tools.json": "tools-raw",
++    "artifacts.json": current ? "artifacts-current-only" : "artifacts-raw",
++    "prompts.json": current ? "prompts-current-only" : "prompts-old-and-current-raw",
++    "system-prompt.txt": current ? "system-prompt-current-only" : "system-prompt-raw",
++    "tools.json": current ? "tools-current-only" : "tools-raw",
+     "events.jsonl": `${(current ? events.slice(6) : events).join("\n")}\n`,
+     "session-branch.json": 'session-branch-old-root\n"[Truncated]"\n',
+   };
+   if (current) {
+-    delete files["prompts.json"];
+     delete files["session-branch.json"];
+-    delete files["system-prompt.txt"];
+-    delete files["tools.json"];
+-    delete files["artifacts.json"];
+   }
+   if (omitOptional) {
+     delete files["system-prompt.txt"];
+@@ -229,8 +225,15 @@ describe("Mtrace HTTP export", () => {
+   }>([
+     {
+       mode: "full",
+-      includes: ["current-events.jsonl", "metadata.json"],
+-      excludes: ["session-branch.json", "prompts.json", "tools.json"],
++      includes: [
++        "current-events.jsonl",
++        "metadata.json",
++        "artifacts.json",
++        "prompts.json",
++        "system-prompt.txt",
++        "tools.json",
++      ],
++      excludes: ["session-branch.json"],
+       scope: "since-last-reset",
+       eventCount: 5,
+       runtimeEventCount: 2,
+@@ -247,8 +250,15 @@ describe("Mtrace HTTP export", () => {
+     },
+     {
+       mode: "prompt-tool-runtime",
+-      includes: ["current-prompt-tool-runtime.jsonl", "metadata.json"],
+-      excludes: ["session-branch.json", "prompts.json", "tools.json"],
++      includes: [
++        "current-prompt-tool-runtime.jsonl",
++        "metadata.json",
++        "artifacts.json",
++        "prompts.json",
++        "system-prompt.txt",
++        "tools.json",
++      ],
++      excludes: ["session-branch.json"],
+       scope: "since-last-reset",
+       eventCount: 5,
+       runtimeEventCount: 2,
+diff --git a/src/gateway/mtrace-http.ts b/src/gateway/mtrace-http.ts
+index 5e136ed..66d7e8d 100644
+--- a/src/gateway/mtrace-http.ts
++++ b/src/gateway/mtrace-http.ts
+@@ -109,40 +109,58 @@ type RawEventProjection = {
+   conversationStartedAt?: string;
+ };
+ 
+-function isTranscriptEvent(line: string): boolean {
+-  return line.includes('"source":"transcript"');
+-}
++type RawEventEnvelope = {
++  source?: "runtime" | "transcript";
++  type?: string;
++};
+ 
+-function isRuntimeEvent(line: string): boolean {
+-  return line.includes('"source":"runtime"');
++function readRawEventEnvelope(line: string): RawEventEnvelope {
++  // `data` is serialized after the stable trajectory envelope. Inspect only the
++  // prefix so a tool result or prompt containing strings such as
++  // `"source":"runtime"` cannot change how the outer event is classified.
++  const dataIndex = line.indexOf(',"data":');
++  const prefix = line.slice(0, dataIndex >= 0 ? dataIndex : Math.min(line.length, 4096));
++  const source = /"source":"(runtime|transcript)"/u.exec(prefix)?.[1];
++  const type = /"type":"([^"\\]+)"/u.exec(prefix)?.[1];
++  return {
++    source: source === "runtime" || source === "transcript" ? source : undefined,
++    type,
++  };
+ }
+ 
+-function isPromptToolRuntimeEvent(line: string): boolean {
+-  if (isRuntimeEvent(line)) {
++function isPromptToolRuntimeEvent(envelope: RawEventEnvelope): boolean {
++  if (envelope.source === "runtime") {
+     return true;
+   }
+   return (
+-    isTranscriptEvent(line) &&
+-    (line.includes('"type":"tool.call"') ||
+-      line.includes('"type":"tool.result"') ||
+-      line.includes('"type":"user.message"') ||
+-      line.includes('"type":"session.custom_message"'))
++    envelope.source === "transcript" &&
++    (envelope.type === "tool.call" ||
++      envelope.type === "tool.result" ||
++      envelope.type === "user.message" ||
++      envelope.type === "session.custom_message")
+   );
+ }
+ 
+ // The exporter has already selected the typed active branch and matching runtime
+-// evidence. Parse only compact source/type envelopes here, preserving raw payloads
++// evidence. Read only the stable source/type envelope here, preserving raw payloads
+ // (including malformed redaction output); never reselect a conversation by line.
+ function projectRawEvents(raw: string): RawEventProjection {
+-  const lines = raw.split(/\r?\n/).filter((line) => line.length > 0);
+-  const transcript = lines.filter(isTranscriptEvent);
+-  const promptToolRuntime = lines.filter(isPromptToolRuntimeEvent);
++  const rows = raw
++    .split(/\r?\n/)
++    .filter((line) => line.length > 0)
++    .map((line) => ({ line, envelope: readRawEventEnvelope(line) }));
++  const transcript = rows.filter(({ envelope }) => envelope.source === "transcript");
++  const promptToolRuntime = rows.filter(({ envelope }) => isPromptToolRuntimeEvent(envelope));
++  const lines = rows.map(({ line }) => line);
+   return {
+     allEvents: lines.join("\n") + (lines.length ? "\n" : ""),
+-    transcriptEvents: transcript.join("\n") + (transcript.length ? "\n" : ""),
+-    promptToolRuntimeEvents: promptToolRuntime.join("\n") + (promptToolRuntime.length ? "\n" : ""),
+-    eventCount: lines.length,
+-    runtimeEventCount: lines.filter(isRuntimeEvent).length,
++    transcriptEvents:
++      transcript.map(({ line }) => line).join("\n") + (transcript.length ? "\n" : ""),
++    promptToolRuntimeEvents:
++      promptToolRuntime.map(({ line }) => line).join("\n") +
++      (promptToolRuntime.length ? "\n" : ""),
++    eventCount: rows.length,
++    runtimeEventCount: rows.filter(({ envelope }) => envelope.source === "runtime").length,
+     transcriptEventCount: transcript.length,
+     scope: "since-last-reset",
+   };
+@@ -283,11 +301,15 @@ async function buildMtraceMarkdown(params: {
+   const virtualFiles = new Map<string, string>();
+ 
+   const selectedNames: string[] = ["manifest.json"];
+-  if (
+-    (params.mode === "full" || params.mode === "prompt-tool-runtime") &&
+-    available.has("metadata.json")
+-  ) {
+-    selectedNames.push("metadata.json");
++  const scopedSupplemental = [
++    "metadata.json",
++    "artifacts.json",
++    "prompts.json",
++    "system-prompt.txt",
++    "tools.json",
++  ].filter((name) => available.has(name));
++  if (params.mode === "full" || params.mode === "prompt-tool-runtime") {
++    selectedNames.push(...scopedSupplemental);
+   }
+   if (params.mode === "full") {
+     selectedNames.push("current-events.jsonl");
+@@ -313,6 +335,14 @@ async function buildMtraceMarkdown(params: {
+     resetBoundaryEntryId: projection.resetBoundaryEntryId,
+     conversationStartedAt: projection.conversationStartedAt,
+     preResetHistoryExcluded: projection.scope === "since-last-reset",
++    runtimeCorrelation:
++      typeof sourceManifest.runtimeCorrelation === "string"
++        ? sourceManifest.runtimeCorrelation
++        : undefined,
++    selectedRunCount:
++      typeof sourceManifest.selectedRunCount === "number"
++        ? sourceManifest.selectedRunCount
++        : undefined,
+     eventCount: projection.eventCount,
+     runtimeEventCount: projection.runtimeEventCount,
+     transcriptEventCount: projection.transcriptEventCount,
+@@ -323,6 +353,14 @@ async function buildMtraceMarkdown(params: {
+       eventCount: params.eventCount,
+       runtimeEventCount: params.runtimeEventCount,
+       transcriptEventCount: params.transcriptEventCount,
++      runtimeCorrelation:
++        typeof sourceManifest.runtimeCorrelation === "string"
++          ? sourceManifest.runtimeCorrelation
++          : undefined,
++      selectedRunCount:
++        typeof sourceManifest.selectedRunCount === "number"
++          ? sourceManifest.selectedRunCount
++          : undefined,
+     },
+     contents: selectedNames.map((file) => ({ path: file })),
+   };
+diff --git a/src/trajectory/current-conversation-export.test.ts b/src/trajectory/current-conversation-export.test.ts
+index 8db2981..d715541 100644
+--- a/src/trajectory/current-conversation-export.test.ts
++++ b/src/trajectory/current-conversation-export.test.ts
+@@ -10,7 +10,7 @@ afterAll(async () => {
+   await fs.rm(root, { recursive: true, force: true });
+ });
+ 
+-function runtime(id: string, ts: string, seq: number) {
++function runtime(id: string, ts: string, seq: number, runId: string) {
+   return {
+     traceSchema: "openclaw-trajectory",
+     schemaVersion: 1,
+@@ -21,11 +21,22 @@ function runtime(id: string, ts: string, seq: number) {
+     seq,
+     sourceSeq: seq,
+     sessionId: "session-1",
+-    runId: "run-" + id,
++    runId,
+     data: { prompt: id },
+   };
+ }
+ 
++function persistedUser(content: string, runId: string) {
++  return { ...userMessage(content), idempotencyKey: `${runId}:user` };
++}
++
++function persistedAssistant(content: string, runId: string) {
++  return {
++    ...assistantMessage([{ type: "text" as const, text: content }]),
++    __openclaw: { runId },
++  };
++}
++
+ describe("typed current-conversation bundle", () => {
+   it("excludes old epoch from emitted files while explicit history retains it", async () => {
+     const sessionFile = path.join(root, "session.jsonl");
+@@ -38,7 +49,7 @@ describe("typed current-conversation bundle", () => {
+         id: "old",
+         parentId: null,
+         timestamp: ts(1),
+-        message: userMessage("OLD EPOCH MUST NOT LEAK"),
++        message: persistedUser("OLD EPOCH MUST NOT LEAK", "run-old"),
+       },
+       { type: "reset", id: "reset", parentId: "old", timestamp: ts(2), reason: "reset" },
+       {
+@@ -46,34 +57,37 @@ describe("typed current-conversation bundle", () => {
+         id: "control",
+         parentId: "reset",
+         timestamp: ts(3),
+-        message: userMessage("/reset"),
++        message: persistedUser("/reset", "run-reset"),
+       },
+       {
+         type: "message",
+         id: "ack",
+         parentId: "control",
+         timestamp: ts(4),
+-        message: assistantMessage([{ type: "text", text: "Reset complete" }]),
++        message: persistedAssistant("Reset complete", "run-reset"),
+       },
+       {
+         type: "message",
+         id: "current",
+         parentId: "ack",
+         timestamp: ts(5),
+-        message: userMessage("CURRENT EPOCH START"),
++        message: persistedUser("CURRENT EPOCH START", "run-current"),
+       },
+       {
+         type: "message",
+         id: "answer",
+         parentId: "current",
+         timestamp: ts(7),
+-        message: assistantMessage([{ type: "text", text: "CURRENT EPOCH END" }]),
++        message: persistedAssistant("CURRENT EPOCH END", "run-current"),
+       },
+     ];
+     await fs.writeFile(sessionFile, entries.map((row) => JSON.stringify(row)).join("\n") + "\n");
+     await fs.writeFile(
+       runtimeFile,
+-      [runtime("OLD EPOCH PROMPT", ts(1), 1), runtime("CURRENT PROMPT", ts(6), 2)]
++      [
++        runtime("OLD EPOCH PROMPT", ts(6), 1, "run-old"),
++        runtime("CURRENT PROMPT", ts(6), 2, "run-current"),
++      ]
+         .map((row) => JSON.stringify(row))
+         .join("\n") + "\n",
+     );
+@@ -88,6 +102,7 @@ describe("typed current-conversation bundle", () => {
+     expect(current.manifest.selectionScope).toBe("current-conversation");
+     expect(current.manifest.resetBoundaryEntryId).toBe("reset");
+     expect(current.manifest.conversationStartedAt).toBe(ts(5));
++    expect(current.manifest.runtimeCorrelation).toBe("active-branch-run-id");
+     expect(current.manifest.runtimeEventCount).toBe(1);
+     for (const file of current.files) {
+       const data = await fs.readFile(path.join(current.outputDir, file), "utf8");
+@@ -105,51 +120,64 @@ describe("typed current-conversation bundle", () => {
+       "OLD EPOCH",
+     );
+   });
+-  it("refuses current runtime when a later abandoned branch interleaves", async () => {
++
++  it("excludes a later abandoned branch runtime event by run ownership", async () => {
+     const sessionFile = path.join(root, "fork-session.jsonl");
+     const runtimeFile = path.join(root, "fork-runtime.jsonl");
+     const ts = (n: number) => new Date(Date.UTC(2026, 8, 25, 0, 0, n)).toISOString();
+     const entries = [
+       { type: "session", version: 3, id: "session-1", timestamp: ts(0), cwd: root },
+-      { type: "message", id: "old", parentId: null, timestamp: ts(1), message: userMessage("old") },
++      {
++        type: "message",
++        id: "old",
++        parentId: null,
++        timestamp: ts(1),
++        message: persistedUser("old", "run-old"),
++      },
+       { type: "reset", id: "reset", parentId: "old", timestamp: ts(2), reason: "reset" },
+       {
+         type: "message",
+         id: "current",
+         parentId: "reset",
+         timestamp: ts(5),
+-        message: userMessage("current"),
++        message: persistedUser("current", "run-current"),
+       },
+       {
+         type: "message",
+         id: "abandoned",
+         parentId: "reset",
+         timestamp: ts(6),
+-        message: userMessage("ABANDONED BRANCH"),
++        message: persistedUser("ABANDONED BRANCH", "run-abandoned"),
+       },
+       {
+         type: "message",
+         id: "answer",
+         parentId: "current",
+         timestamp: ts(8),
+-        message: assistantMessage([{ type: "text", text: "answer" }]),
++        message: persistedAssistant("answer", "run-current"),
+       },
+     ];
+     await fs.writeFile(sessionFile, entries.map((row) => JSON.stringify(row)).join("\n") + "\n");
+     await fs.writeFile(
+       runtimeFile,
+-      [runtime("ABANDONED BRANCH", ts(7), 1)].map((row) => JSON.stringify(row)).join("\n") + "\n",
++      [
++        runtime("ABANDONED BRANCH", ts(7), 1, "run-abandoned"),
++        runtime("CURRENT RUNTIME", ts(7), 2, "run-current"),
++      ]
++        .map((row) => JSON.stringify(row))
++        .join("\n") + "\n",
+     );
+-    await expect(
+-      exportTrajectoryBundle({
+-        outputDir: path.join(root, "fork-current"),
+-        sessionFile,
+-        runtimeFile,
+-        sessionId: "session-1",
+-        workspaceDir: root,
+-        conversationScope: "current",
+-      }),
+-    ).rejects.toThrow(/interleaved transcript branches/);
++    const current = await exportTrajectoryBundle({
++      outputDir: path.join(root, "fork-current"),
++      sessionFile,
++      runtimeFile,
++      sessionId: "session-1",
++      workspaceDir: root,
++      conversationScope: "current",
++    });
++    const events = await fs.readFile(path.join(current.outputDir, "events.jsonl"), "utf8");
++    expect(events).toContain("CURRENT RUNTIME");
++    expect(events).not.toContain("ABANDONED BRANCH");
+     const history = await exportTrajectoryBundle({
+       outputDir: path.join(root, "fork-history"),
+       sessionFile,
+@@ -157,6 +185,6 @@ describe("typed current-conversation bundle", () => {
+       sessionId: "session-1",
+       workspaceDir: root,
+     });
+-    expect(history.manifest.runtimeEventCount).toBe(1);
++    expect(history.manifest.runtimeEventCount).toBe(2);
+   });
+ });
+diff --git a/src/trajectory/current-conversation.test.ts b/src/trajectory/current-conversation.test.ts
+index 29ccd8d..cd4993f 100644
+--- a/src/trajectory/current-conversation.test.ts
++++ b/src/trajectory/current-conversation.test.ts
+@@ -6,52 +6,172 @@ import type { TrajectoryEvent } from "./types.js";
+ const at = (second: number) => new Date(Date.UTC(2026, 8, 25, 0, 0, second)).toISOString();
+ const entry = (id: string, second: number, type: "reset" | "message", message?: unknown) =>
+   ({ id, type, timestamp: at(second), parentId: null, reason: "reset", message }) as SessionEntry;
+-const user = (id: string, second: number, content: string, provenance?: unknown) =>
+-  entry(id, second, "message", { role: "user", content, provenance });
+-const assistant = (id: string, second: number) =>
+-  entry(id, second, "message", { role: "assistant", content: "ack" });
+-const runtime = (id: string, second: number) =>
++const user = (
++  id: string,
++  second: number,
++  content: string,
++  runId: string,
++  provenance?: unknown,
++) =>
++  entry(id, second, "message", {
++    role: "user",
++    content,
++    provenance,
++    idempotencyKey: `${runId}:user`,
++  });
++const assistant = (id: string, second: number, runId: string) =>
++  entry(id, second, "message", {
++    role: "assistant",
++    content: "ack",
++    __openclaw: { runId },
++  });
++const runtime = (id: string, second: number, runId?: string) =>
+   ({
++    traceSchema: "openclaw-trajectory",
++    schemaVersion: 1,
++    traceId: "session",
++    sessionId: "session",
+     source: "runtime",
+     type: "prompt.submitted",
+     ts: at(second),
++    seq: second,
++    sourceSeq: second,
++    runId,
+     data: { prompt: id },
+   }) as TrajectoryEvent;
+ 
+ describe("current conversation active-branch projection", () => {
+-  it("keeps only C from A → reset → B → reset → C", () => {
++  it("keeps only C from A → reset → B → reset → C and joins runtime by runId", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("r1", 2, "reset"),
++      user("B", 3, "B", "run-b"),
++      entry("r2", 4, "reset"),
++      user("control", 5, "/reset", "reset-control"),
++      assistant("ack", 6, "reset-control"),
++      user("C", 7, "C", "run-c"),
++      assistant("reply", 9, "run-c"),
++    ];
+     const selected = selectCurrentConversation(
+-      [
+-        user("A", 1, "A"),
+-        entry("r1", 2, "reset"),
+-        user("B", 3, "B"),
+-        entry("r2", 4, "reset"),
+-        user("control", 5, "/reset"),
+-        assistant("ack", 6),
+-        user("C", 7, "C"),
+-        assistant("reply", 9),
+-      ],
+-      [runtime("old", 3), runtime("current", 8)],
++      branch,
++      [runtime("old", 8, "run-b"), runtime("current", 8, "run-c")],
++      { allEntries: branch },
+     );
+     expect(selected.entries.map((value) => value.id)).toEqual(["C", "reply"]);
+     expect(selected.runtimeEvents.map((value) => value.data?.prompt)).toEqual(["current"]);
++    expect(selected.runIds).toEqual(["run-c"]);
+     expect(selected.resetBoundaryEntryId).toBe("r2");
+     expect(selected.conversationStartedAt).toBe(at(7));
+   });
+ 
++  it("excludes an interleaved abandoned branch by run ownership", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("reset", 2, "reset"),
++      user("C", 5, "C", "run-current"),
++      assistant("answer", 8, "run-current"),
++    ];
++    const abandoned = user("abandoned", 6, "ABANDONED", "run-abandoned");
++    const selected = selectCurrentConversation(
++      branch,
++      [runtime("abandoned", 7, "run-abandoned"), runtime("current", 7, "run-current")],
++      { allEntries: [...branch, abandoned] },
++    );
++    expect(selected.entries.map((value) => value.id)).toEqual(["C", "answer"]);
++    expect(selected.runtimeEvents.map((value) => value.data?.prompt)).toEqual(["current"]);
++  });
++
++  it("fails closed if a run id is shared by selected and off-branch entries", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("reset", 2, "reset"),
++      user("C", 5, "C", "shared-run"),
++      assistant("answer", 8, "shared-run"),
++    ];
++    const abandoned = user("abandoned", 6, "ABANDONED", "shared-run");
++    expect(() =>
++      selectCurrentConversation(branch, [runtime("shared", 7, "shared-run")], {
++        allEntries: [...branch, abandoned],
++      }),
++    ).toThrow(/shared with an off-branch/);
++  });
++
++
++  it("maps a before_agent_run blocked user row back to its runtime run id", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("reset", 2, "reset"),
++      user("C", 5, "C", "run-c"),
++      entry("blocked", 6, "message", {
++        role: "user",
++        content: "blocked before agent run",
++        idempotencyKey: "hook-block:before_agent_run:user:run-blocked",
++      }),
++    ];
++    const selected = selectCurrentConversation(
++      branch,
++      [runtime("current", 5, "run-c"), runtime("blocked", 6, "run-blocked")],
++      { allEntries: branch },
++    );
++    expect(selected.runIds).toEqual(["run-blocked", "run-c"]);
++    expect(selected.runtimeEvents.map((value) => value.data?.prompt)).toEqual([
++      "current",
++      "blocked",
++    ]);
++  });
++
++  it("fails closed for post-boundary runtime whose run id has no transcript owner", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("reset", 2, "reset"),
++      user("C", 5, "C", "run-c"),
++    ];
++    expect(() =>
++      selectCurrentConversation(
++        branch,
++        [runtime("current", 5, "run-c"), runtime("mystery", 6, "run-mystery")],
++        { allEntries: branch },
++      ),
++    ).toThrow(/no transcript ownership/);
++  });
++
++  it("fails closed for post-boundary runtime evidence without run ownership", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("reset", 2, "reset"),
++      user("C", 5, "C", "run-c"),
++    ];
++    expect(() =>
++      selectCurrentConversation(branch, [runtime("unowned", 6)], { allEntries: branch }),
++    ).toThrow(/have no runId/);
++  });
++
+   it("ignores a reset on an abandoned branch because it is not on the supplied active branch", () => {
++    const branch = [
++      user("A", 1, "A", "run-a"),
++      entry("active-reset", 2, "reset"),
++      user("C", 5, "C", "run-c"),
++    ];
++    const abandonedReset = entry("abandoned-reset", 4, "reset");
+     const selected = selectCurrentConversation(
+-      [user("A", 1, "A"), entry("active-reset", 2, "reset"), user("C", 5, "C")],
+-      [runtime("old", 1), runtime("new", 6)],
++      branch,
++      [runtime("old", 1, "run-a"), runtime("new", 6, "run-c")],
++      { allEntries: [...branch, abandonedReset] },
+     );
+     expect(selected.resetBoundaryEntryId).toBe("active-reset");
+     expect(selected.entries.map((value) => value.id)).toEqual(["C"]);
+   });
+ 
+-  it("returns the full active branch when there is no reset", () => {
+-    const selected = selectCurrentConversation([user("A", 1, "A")], [runtime("A", 2)]);
+-    expect(selected.entries.map((value) => value.id)).toEqual(["A"]);
+-    expect(selected.runtimeEvents).toHaveLength(1);
++  it("returns the full active branch when there is no reset while excluding off-branch runtime", () => {
++    const branch = [user("A", 1, "A", "run-a"), assistant("reply", 3, "run-a")];
++    const abandoned = user("fork", 2, "fork", "run-fork");
++    const selected = selectCurrentConversation(
++      branch,
++      [runtime("A", 2, "run-a"), runtime("fork", 2, "run-fork")],
++      { allEntries: [...branch, abandoned] },
++    );
++    expect(selected.entries.map((value) => value.id)).toEqual(["A", "reply"]);
++    expect(selected.runtimeEvents.map((value) => value.data?.prompt)).toEqual(["A"]);
+     expect(selected.resetBoundaryAt).toBeUndefined();
+   });
+ 
+@@ -59,11 +179,11 @@ describe("current conversation active-branch projection", () => {
+     expect(() =>
+       selectCurrentConversation(
+         [
+-          user("A", 1, "A"),
++          user("A", 1, "A", "run-a"),
+           entry("reset", 2, "reset"),
+-          user("control", 3, "/reset"),
+-          assistant("ack", 4),
+-          user("inter", 5, "inter", { kind: "inter_session" }),
++          user("control", 3, "/reset", "reset-run"),
++          assistant("ack", 4, "reset-run"),
++          user("inter", 5, "inter", "announce-run", { kind: "inter_session" }),
+         ],
+         [],
+       ),
+diff --git a/src/trajectory/current-conversation.ts b/src/trajectory/current-conversation.ts
+index 042736a..f81097b 100644
+--- a/src/trajectory/current-conversation.ts
++++ b/src/trajectory/current-conversation.ts
+@@ -1,14 +1,39 @@
++import { isRecord } from "@openclaw/normalization-core/record-coerce";
++import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+ import type { SessionEntry } from "../agents/sessions/session-manager.js";
++import { readMessageIdempotencyKey } from "../config/sessions/transcript-message-identity.js";
++import { readSessionTranscriptRunId } from "../sessions/transcript-events.js";
+ import type { TrajectoryEvent } from "./types.js";
+ 
+ export type CurrentConversationSelection = {
+   entries: SessionEntry[];
+   runtimeEvents: TrajectoryEvent[];
++  runIds: string[];
+   resetBoundaryAt?: string;
+   resetBoundaryEntryId?: string;
+   conversationStartedAt?: string;
+ };
+ 
++function messageText(message: unknown): string {
++  if (!isRecord(message)) {
++    return "";
++  }
++  const content = message.content;
++  if (typeof content === "string") {
++    return content;
++  }
++  if (!Array.isArray(content)) {
++    return "";
++  }
++  return content
++    .filter(
++      (part): part is { type: string; text: string } =>
++        isRecord(part) && part.type === "text" && typeof part.text === "string",
++    )
++    .map((part) => part.text)
++    .join(" ");
++}
++
+ function isDirectUserMessage(entry: SessionEntry): boolean {
+   if (entry.type !== "message" || entry.message.role !== "user") {
+     return false;
+@@ -22,55 +47,230 @@ function isDirectUserMessage(entry: SessionEntry): boolean {
+   ) {
+     return false;
+   }
+-  const content = message.content;
+-  const text =
+-    typeof content === "string"
+-      ? content
+-      : Array.isArray(content)
+-        ? content
+-            .filter(
+-              (part): part is { type: string; text: string } =>
+-                part?.type === "text" && typeof part.text === "string",
+-            )
+-            .map((part) => part.text)
+-            .join(" ")
+-        : "";
+-  return !/^\/reset(?:\s|$)/i.test(text.trim());
++  return !/^\/reset(?:\s|$)/i.test(messageText(message).trim());
++}
++
++function collectIdempotencyRunIdCandidates(message: unknown, target: Set<string>): void {
++  const key = readMessageIdempotencyKey(message);
++  if (!key) {
++    return;
++  }
++
++  // Canonical admitted user turns use `${runId}:user`; late-media carriers
++  // extend that with another suffix. Run ids themselves may contain `:user`,
++  // so keep the prefix greedy and anchor the control marker near the end.
++  const canonical = /^(.*):user(?::.*)?$/u.exec(key);
++  if (canonical) {
++    const derived = normalizeOptionalString(canonical[1]);
++    if (derived) {
++      target.add(derived);
++    }
++  }
++
++  // A blocked before_agent_run turn is persisted with the run id after the
++  // control marker instead of before it. This row may be the only transcript
++  // ownership evidence because no assistant message is produced.
++  const hookBlockPrefix = "hook-block:before_agent_run:user:";
++  if (key.startsWith(hookBlockPrefix)) {
++    const blockedRunId = normalizeOptionalString(key.slice(hookBlockPrefix.length));
++    if (blockedRunId) {
++      target.add(blockedRunId);
++    }
++  }
++
++  // Retain the exact idempotency value as a compatibility candidate. It is not
++  // trusted as a run id by itself: runtime selection intersects candidates
++  // with run ids that actually exist in the trajectory runtime stream.
++  target.add(key);
++}
++
++function collectMessageRunIds(message: unknown, target: Set<string>): void {
++  const persistedRunId = readSessionTranscriptRunId(message);
++  if (persistedRunId) {
++    target.add(persistedRunId);
++  }
++  if (!isRecord(message)) {
++    return;
++  }
++  const metadata = isRecord(message["__openclaw"]) ? message["__openclaw"] : undefined;
++  const steerTargetRunId = normalizeOptionalString(metadata?.["steerTargetRunId"]);
++  if (steerTargetRunId) {
++    target.add(steerTargetRunId);
++  }
++  collectIdempotencyRunIdCandidates(message, target);
++}
++
++function collectEntryRunIds(entries: readonly SessionEntry[]): Set<string> {
++  const runIds = new Set<string>();
++  for (const entry of entries) {
++    if (entry.type === "message") {
++      collectMessageRunIds(entry.message, runIds);
++      continue;
++    }
++    if (entry.type === "compaction") {
++      const runId = normalizeOptionalString(entry.__openclaw?.runId);
++      if (runId) {
++        runIds.add(runId);
++      }
++    }
++  }
++  return runIds;
++}
++
++function parseTimestamp(value: string, label: string): number {
++  const timestamp = Date.parse(value);
++  if (!Number.isFinite(timestamp)) {
++    throw new Error(`${label} has an invalid timestamp`);
++  }
++  return timestamp;
+ }
+ 
+-/** Only the already-resolved active branch may establish the reset boundary. */
++function selectRuntimeEventsByRunOwnership(params: {
++  selectedEntries: readonly SessionEntry[];
++  activeBranchEntries: readonly SessionEntry[];
++  allEntries?: readonly SessionEntry[];
++  runtimeEvents: readonly TrajectoryEvent[];
++  startAt: string;
++}): { events: TrajectoryEvent[]; runIds: string[] } {
++  if (params.runtimeEvents.length === 0) {
++    return { events: [], runIds: [] };
++  }
++
++  const runtimeRunIds = new Set(
++    params.runtimeEvents
++      .map((event) => normalizeOptionalString(event.runId))
++      .filter((runId): runId is string => Boolean(runId)),
++  );
++  const selectedCandidates = collectEntryRunIds(params.selectedEntries);
++  const selectedRunIds = new Set(
++    [...selectedCandidates].filter((candidate) => runtimeRunIds.has(candidate)),
++  );
++
++  const selectedEntryIds = new Set(params.selectedEntries.map((entry) => entry.id));
++  const activeBranchIds = new Set(params.activeBranchEntries.map((entry) => entry.id));
++  const knownNonSelectedRunIds = collectEntryRunIds(
++    (params.allEntries ?? params.activeBranchEntries).filter(
++      (entry) => !selectedEntryIds.has(entry.id),
++    ),
++  );
++
++  if (params.allEntries) {
++    const offBranchRunIds = collectEntryRunIds(
++      params.allEntries.filter((entry) => !activeBranchIds.has(entry.id)),
++    );
++    const sharedRunId = [...selectedRunIds].find((runId) => offBranchRunIds.has(runId));
++    if (sharedRunId) {
++      throw new Error(
++        `Cannot safely scope current conversation runtime events because run ${sharedRunId} is shared with an off-branch transcript entry`,
++      );
++    }
++  }
++
++  const startMs = parseTimestamp(params.startAt, "Current conversation start");
++  const unownedCurrentRuntime: TrajectoryEvent[] = [];
++  const unknownCurrentRuntime: TrajectoryEvent[] = [];
++  const selectedRuntime: TrajectoryEvent[] = [];
++  for (const event of params.runtimeEvents) {
++    const runId = normalizeOptionalString(event.runId);
++    if (runId && selectedRunIds.has(runId)) {
++      selectedRuntime.push(event);
++      continue;
++    }
++
++    const eventMs = parseTimestamp(event.ts, "Runtime event");
++    if (eventMs < startMs) {
++      continue;
++    }
++    if (!runId) {
++      unownedCurrentRuntime.push(event);
++      continue;
++    }
++    if (!knownNonSelectedRunIds.has(runId)) {
++      unknownCurrentRuntime.push(event);
++    }
++  }
++
++  if (unownedCurrentRuntime.length > 0) {
++    throw new Error(
++      `Cannot safely scope current conversation runtime events: ${unownedCurrentRuntime.length} post-boundary runtime event(s) have no runId`,
++    );
++  }
++  if (unknownCurrentRuntime.length > 0) {
++    const unknownIds = [
++      ...new Set(
++        unknownCurrentRuntime
++          .map((event) => normalizeOptionalString(event.runId))
++          .filter((runId): runId is string => Boolean(runId)),
++      ),
++    ];
++    throw new Error(
++      `Cannot safely scope current conversation runtime events: ${unknownCurrentRuntime.length} post-boundary runtime event(s) belong to ${unknownIds.length} run(s) with no transcript ownership`,
++    );
++  }
++  if (selectedRuntime.length === 0 && selectedRunIds.size === 0) {
++    const hasPostBoundaryRuntime = params.runtimeEvents.some(
++      (event) => parseTimestamp(event.ts, "Runtime event") >= startMs,
++    );
++    if (hasPostBoundaryRuntime) {
++      throw new Error(
++        "Cannot safely scope current conversation runtime events because the active branch exposes no run ownership",
++      );
++    }
++  }
++
++  return { events: selectedRuntime, runIds: [...selectedRunIds].toSorted() };
++}
++
++/**
++ * Select the visible conversation epoch on the already-resolved active branch.
++ * Runtime evidence is joined by persisted run ownership rather than timestamp,
++ * so later abandoned branches cannot leak into a current-conversation export.
++ */
+ export function selectCurrentConversation(
+   branchEntries: readonly SessionEntry[],
+   runtimeEvents: readonly TrajectoryEvent[],
++  options: { allEntries?: readonly SessionEntry[] } = {},
+ ): CurrentConversationSelection {
+   const resetIndex = branchEntries.findLastIndex((entry) => entry.type === "reset");
++  let selectedEntries: SessionEntry[];
++  let resetBoundaryAt: string | undefined;
++  let resetBoundaryEntryId: string | undefined;
++  let conversationStartedAt: string | undefined;
++
+   if (resetIndex < 0) {
+-    return { entries: [...branchEntries], runtimeEvents: [...runtimeEvents] };
+-  }
+-  const reset = branchEntries[resetIndex]!;
+-  const firstUserIndex = branchEntries.findIndex(
+-    (entry, index) => index > resetIndex && isDirectUserMessage(entry),
+-  );
+-  if (firstUserIndex < 0) {
+-    throw new Error("Current conversation has no direct user message after the latest reset");
+-  }
+-  const firstUser = branchEntries[firstUserIndex]!;
+-  const startMs = Date.parse(firstUser.timestamp);
+-  if (!Number.isFinite(startMs)) {
+-    throw new Error("Current conversation start has an invalid timestamp");
+-  }
+-  const selectedRuntime = runtimeEvents.filter((event) => {
+-    const eventMs = Date.parse(event.ts);
+-    if (!Number.isFinite(eventMs)) {
+-      throw new Error("Runtime event has an invalid timestamp; cannot safely scope export");
++    selectedEntries = [...branchEntries];
++    conversationStartedAt = selectedEntries[0]?.timestamp;
++  } else {
++    const reset = branchEntries[resetIndex]!;
++    const firstUserIndex = branchEntries.findIndex(
++      (entry, index) => index > resetIndex && isDirectUserMessage(entry),
++    );
++    if (firstUserIndex < 0) {
++      throw new Error("Current conversation has no direct user message after the latest reset");
+     }
+-    return eventMs >= startMs;
++    const firstUser = branchEntries[firstUserIndex]!;
++    parseTimestamp(firstUser.timestamp, "Current conversation start");
++    selectedEntries = branchEntries.slice(firstUserIndex);
++    resetBoundaryAt = reset.timestamp;
++    resetBoundaryEntryId = reset.id;
++    conversationStartedAt = firstUser.timestamp;
++  }
++
++  const startAt = conversationStartedAt ?? new Date(0).toISOString();
++  const runtimeSelection = selectRuntimeEventsByRunOwnership({
++    selectedEntries,
++    activeBranchEntries: branchEntries,
++    allEntries: options.allEntries,
++    runtimeEvents,
++    startAt,
+   });
++
+   return {
+-    entries: branchEntries.slice(firstUserIndex),
+-    runtimeEvents: selectedRuntime,
+-    resetBoundaryAt: reset.timestamp,
+-    resetBoundaryEntryId: reset.id,
+-    conversationStartedAt: firstUser.timestamp,
++    entries: selectedEntries,
++    runtimeEvents: runtimeSelection.events,
++    runIds: runtimeSelection.runIds,
++    resetBoundaryAt,
++    resetBoundaryEntryId,
++    conversationStartedAt,
+   };
+ }
+diff --git a/src/trajectory/export.ts b/src/trajectory/export.ts
+index 811e30b..e2ae9d3 100644
+--- a/src/trajectory/export.ts
++++ b/src/trajectory/export.ts
+@@ -1264,25 +1264,8 @@ export async function exportTrajectoryBundle(params: BuildTrajectoryBundleParams
+   assertCanonicalTrajectoryInputs(branchEntries, runtimeEvents);
+   const currentSelection =
+     params.conversationScope === "current"
+-      ? selectCurrentConversation(branchEntries, runtimeEvents)
++      ? selectCurrentConversation(branchEntries, runtimeEvents, { allEntries })
+       : undefined;
+-  if (currentSelection && currentSelection.runtimeEvents.length > 0) {
+-    const branchIds = new Set(branchEntries.map((entry) => entry.id));
+-    const start = Date.parse(
+-      currentSelection.conversationStartedAt ?? branchEntries[0]?.timestamp ?? "",
+-    );
+-    if (!Number.isFinite(start)) {
+-      throw new Error("Current conversation has no valid start time for runtime scoping");
+-    }
+-    const offBranchAfterStart = allEntries.some(
+-      (entry) => !branchIds.has(entry.id) && Date.parse(entry.timestamp) >= start,
+-    );
+-    if (offBranchAfterStart) {
+-      throw new Error(
+-        "Cannot safely scope current conversation runtime events across interleaved transcript branches",
+-      );
+-    }
+-  }
+   const projectedBranchEntries = currentSelection?.entries ?? branchEntries;
+   const projectedRuntimeEvents = currentSelection?.runtimeEvents ?? runtimeEvents;
+   const transcriptEvents = buildTranscriptEvents({
+@@ -1316,6 +1299,8 @@ export async function exportTrajectoryBundle(params: BuildTrajectoryBundleParams
+           resetBoundaryAt: currentSelection.resetBoundaryAt,
+           resetBoundaryEntryId: currentSelection.resetBoundaryEntryId,
+           conversationStartedAt: currentSelection.conversationStartedAt,
++          runtimeCorrelation: "active-branch-run-id" as const,
++          selectedRunCount: currentSelection.runIds.length,
+         }
+       : {}),
+     eventCount: events.length,
+diff --git a/src/trajectory/types.ts b/src/trajectory/types.ts
+index dd41b4e..0c90213 100644
+--- a/src/trajectory/types.ts
++++ b/src/trajectory/types.ts
+@@ -45,6 +45,8 @@ export type TrajectoryBundleManifest = {
+   resetBoundaryAt?: string;
+   resetBoundaryEntryId?: string;
+   conversationStartedAt?: string;
++  runtimeCorrelation?: "active-branch-run-id";
++  selectedRunCount?: number;
+   eventCount: number;
+   runtimeEventCount: number;
+   transcriptEventCount: number;
